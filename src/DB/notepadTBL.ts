@@ -8,9 +8,8 @@ export const insertNewNote =async (newNote) => {
         const notepad = Notepad.create({
             note :newNote
         })
-        await notepad.save()
-        return notepad
-
+        return await notepad.save()
+         
     }
     catch(error){
         console.error(error);
