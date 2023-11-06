@@ -1,7 +1,7 @@
 import express,{Request,Response,NextFunction} from 'express'
 import cors from 'cors'
 import { AppDataSource } from './src/DB/connection';
-import { mainRouter } from './src/Routes/mainRoutes';
+import { mainRouter } from './src/Routes/mainRouter';
 const app  = express();
 const port = 3001;
 
