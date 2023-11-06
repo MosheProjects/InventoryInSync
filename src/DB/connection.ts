@@ -1,5 +1,6 @@
 import { DataSource } from "typeorm";
 import { Notepad } from "../Entities/Notepad";
+import { Visits } from "../Entities/visits";
 
 
 export const AppDataSource = new DataSource({
@@ -9,6 +10,6 @@ export const AppDataSource = new DataSource({
     username:"postgres",
     password:"1234567",
     database:"postgres",
-    entities:[Notepad],
+    entities:[Notepad,Visits],
     synchronize:true
 })
