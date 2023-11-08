@@ -1,4 +1,4 @@
-import {insertNewVisit,getAllVisits,deleteVisitbyId} from '../DB/visitsTBL'
+import {insertNewVisit,getAllVisits,deleteVisitbyId,getColumnsNames} from '../DB/visitsTBL'
 
 
 
@@ -27,3 +27,12 @@ export const deleteVisit=async(req,res)=>{
     const deleteresponse= await deleteVisitbyId(id)
     res.json(deleteresponse)
 }
+export const getNamesOfColumns=(req,res)=>{
+
+    const columns = getColumnsNames();
+   
+    res.json(columns)
+   }
+
+  
+   
