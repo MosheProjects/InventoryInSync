@@ -1,6 +1,6 @@
 import { insertNewNote,getAllNotes,deleteNoteFromDB, getColumnsNames } from "../DB/notepadTBL";
 
-export const addInfo = async (req,res)=>{
+export const addNote= async (req,res)=>{
     try{
         console.log("im in function trying to connect to db");
         const {note} = req.body
@@ -16,7 +16,7 @@ export const addInfo = async (req,res)=>{
     }
 }
 
-export const getInfo = async (req,res)=>{
+export const getNote = async (req,res)=>{
     const tableInfo = await getAllNotes()
     console.log(tableInfo);
     res.json(tableInfo);
