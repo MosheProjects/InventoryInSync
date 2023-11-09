@@ -1,4 +1,4 @@
-import { insertNewNote,getAllNotes,deleteNoteFromDB, getColumnsNames } from "../DB/notepadTBL";
+import { insertNewNote,getAllNotes,deleteNoteFromDB } from "../DB/notepadTBL";
 
 export const addNote= async (req,res)=>{
     try{
@@ -28,9 +28,3 @@ export const deleteNote=async(req,res)=>{
     res.json(deleteresponse)
 }
 
-export const getNamesOfColumns=(req,res)=>{
-
- const columns = getColumnsNames();
-
- res.json(columns)
-}

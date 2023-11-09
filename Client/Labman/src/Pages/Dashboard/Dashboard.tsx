@@ -1,4 +1,4 @@
-import VisitArrange from "../../Components/VisitArrange";
+import VisitArrange from "../../Components/visits/VisitArrange";
 
 export default function Dashboard() {
   return (

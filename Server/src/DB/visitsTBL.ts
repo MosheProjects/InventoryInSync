@@ -37,11 +37,3 @@ export const deleteVisitbyId=async(id)=>{
     }
 }
 
-export const getColumnsNames=()=>{
-    try {
-        const response= AppDataSource.getMetadata("visits").columns.map((column) => column.propertyName);
-        return response
-    } catch (error) {
-        console.error(error);
-        
-    }}

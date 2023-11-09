@@ -7,6 +7,9 @@ import { componentsRouter } from './componentsRouter';
 import { usbRouters } from './usbRouter';
 import { userRouter } from './usersRouter';
 import { generalProductsRouter } from './GProuter';
+import { getNamesOfColumns } from '../Controllers/metadata';
+
+
 export const mainRouter = express.Router();
 
 mainRouter.use('/Notepad',NProuter);
@@ -17,3 +20,5 @@ mainRouter.use ('/Components' , componentsRouter)
 mainRouter.use ('/Usb_stikcs' , usbRouters)
 mainRouter.use('/Users' , userRouter)
 mainRouter.use('/generalProducts' ,generalProductsRouter )
+
+mainRouter.get('/columnsNames',getNamesOfColumns)
