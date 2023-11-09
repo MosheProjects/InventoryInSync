@@ -1,7 +1,10 @@
-import React from 'react'
+import VisitArrange from "../../Components/VisitArrange";
 
 export default function Dashboard() {
   return (
-    <div>Screen</div>
+    <div>Screen
+
+      <VisitArrange/>
+    </div>
   )
 }

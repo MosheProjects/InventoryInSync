@@ -1,5 +1,5 @@
 import { Notepad } from "../Entities/Notepad";
-
+import { AppDataSource } from "./connection";
 export const insertNewNote =async (newNote) => {
     
     try {
@@ -32,6 +32,16 @@ export const deleteNoteFromDB=async(id)=>{
     try {
         const response=await Notepad.delete(id)
         return  response
+    } catch (error) {
+        console.error(error);
+        
+    }
+}
+
+export const getColumnsNames=()=>{
+    try {
+        const response= AppDataSource.getMetadata("notepad").columns.map((column) => column.propertyName);
+        return response
     } catch (error) {
         console.error(error);
         
