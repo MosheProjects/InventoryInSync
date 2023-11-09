@@ -1,10 +1,10 @@
 import express from 'express'
-import { addInfo,getInfo,deleteNote } from '../Controllers/notepadInfo'
+import { addNote,getNote,deleteNote } from '../Controllers/notepadInfo'
 
 const NProuter = express.Router();
 
-NProuter.post('/add', addInfo)
-NProuter.get('/display', getInfo)
+NProuter.post('/add', addNote)
+NProuter.get('/display', getNote)
 NProuter.delete('/delete/:id', deleteNote)
 
 export {NProuter}

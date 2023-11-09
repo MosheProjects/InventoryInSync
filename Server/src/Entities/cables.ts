@@ -3,17 +3,18 @@ import {v4 as uuidv4} from 'uuid'
 @Entity()
 
 
-export class inventory extends BaseEntity{
+export class cables extends BaseEntity{
     @PrimaryGeneratedColumn(uuidv4)
-    id:string;
+   " שם":string;
     @Column()
-    category:string;
+    "איזה כלי":number;
     @Column()
-    itemName:string;
+    "הערות":string;
     @Column()
-    description:string;
+    "מקט":string;
     @Column()
-    location:string;
-
+    "כמות במלאי":string;
+    @Column()
+    "זמין":string;
 
 }
