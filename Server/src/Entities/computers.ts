@@ -5,18 +5,18 @@ import {v4 as uuidv4} from 'uuid'
 
 export class computers extends BaseEntity{
     @PrimaryGeneratedColumn(uuidv4)
-    "שם":string;
+    name:string;
     @Column()
-   "מספר צ":number;
+   id:number;
     @Column()
-    "סוג":string;
+    type:string;
     @Column()
-    "חתום":string;
+    signedBy:string;
     @Column()
-    "מקט":string;
+    order_id:string;
     @Column()
-   "הערות":string;
+   comments:string;
    @Column()
-   "זמינות":string;
+   is_available:string;
 
 }

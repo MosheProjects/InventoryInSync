@@ -1,18 +1,29 @@
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, Checkbox, FormControlLabel, FormGroup, MenuItem, Select, TextField, Typography } from "@mui/material";
 import { useQuery } from "react-query";
 import { getColumnNames } from "../../Api/metadata";
 
 export default function LendingForm() {
+
+  
+
   const { data } = useQuery("columns", async () => {
     const response = await getColumnNames("taken_items");
     return response;
   });
-  console.log(data);
+
+const lendingFormFields=[
+    "שם מלא","מספר טלפון נייד","שם ענף/חברה","בודק/ת","מיקום","הערות"
+]
+const categories=["רתמות","מחשבים","דיסק און קי","מכלולים","ציוד היקפי"]
+
 
   return (
     <Box
-    width={'600px'}
-      bgcolor={"yellow"}
+    display={"flex"}
+    flexWrap={'wrap'}
+      margin={30}
+      width={600}
+      bgcolor={"#f9f97cb0"}
       border={2}
       borderRadius={"15px"}
       dir="rtl"
@@ -22,25 +33,42 @@ export default function LendingForm() {
       }}
       noValidate
       autoComplete="off"
-      
     >
-      <Typography variant="h5" component="h2" gutterBottom>
+      <Typography variant="h3" component="h1" gutterBottom>
         {" "}
         מילוי טופס השאלה{" "}
       </Typography>
-      {data?.map((colName: string) => {
+      <FormGroup>
+      {lendingFormFields.map((fieldName: string) => {
         return (
-          <div>
-            <TextField
-              multiline
-              id="outlined-size-small"
-              defaultValue={colName}
-              //   size={colName=="הערות"? 'medium':"small"}
-              rows={colName === "הערות" ? 6 : 1}
-            />
-          </div>
+            <FormControlLabel  label={fieldName} control={<TextField 
+            placeholder={fieldName}
+            multiline
+            id="outlined-size-small"
+            rows={fieldName === "הערות" ? 6 : 1}
+
+          /> }
+         
+          />
         );
       })}
+  <FormControlLabel control={<Checkbox />} label="הושאל לטווח ארוך" value="הושאל לטווח ארוך" />
+      </FormGroup>
+
+      <div >
+      <Select labelId="demo-simple-select-disabled-label"
+          id="demo-simple-select-disabled"
+          value="hi"
+          label="Age">
+      
+        {categories.map((category)=>{
+            return(
+                <MenuItem>{category}</MenuItem> 
+
+            )
+        })}
+      </Select>
+      </div>
     </Box>
   );
 }

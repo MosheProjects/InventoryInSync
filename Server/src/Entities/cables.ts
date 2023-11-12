@@ -5,16 +5,16 @@ import {v4 as uuidv4} from 'uuid'
 
 export class cables extends BaseEntity{
     @PrimaryGeneratedColumn(uuidv4)
-   " שם":string;
+   name:string;
     @Column()
-    "איזה כלי":number;
+    related_vehicle:number;
     @Column()
-    "הערות":string;
+    comments:string;
     @Column()
-    "מקט":string;
+    order_id:string;
     @Column()
-    "כמות במלאי":string;
+    quantity:string;
     @Column()
-    "זמין":string;
+    isAvailable:string;
 
 }
