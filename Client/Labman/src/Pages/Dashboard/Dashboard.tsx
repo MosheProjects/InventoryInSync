@@ -1,10 +1,12 @@
+import AddProductForm from "../../Components/AddProductForm/AddProductForm";
 import VisitArrange from "../../Components/visits/VisitArrange";
+import './dashboard.css'
 
 export default function Dashboard() {
   return (
-    <div>Screen
+    <div className="deshboardContainer">
 
-      <VisitArrange/>
+    <AddProductForm/>
     </div>
   )
 }

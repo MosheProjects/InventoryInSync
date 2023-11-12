@@ -12,5 +12,6 @@ return response.data;
     }
     catch(error){
         throw new Error('Error fetching column name')
+    
     }
 };
