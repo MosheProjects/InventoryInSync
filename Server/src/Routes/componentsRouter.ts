@@ -6,7 +6,7 @@ import { addComponents, deleteComponents, getComponents } from '../Controllers/c
 const componentsRouter  = express.Router();
 
 componentsRouter.post('/add',addComponents)
-componentsRouter.get('/display',getComponents)
+componentsRouter.get('/get',getComponents)
 componentsRouter.delete('/delete/:id',deleteComponents )
 
 

@@ -5,7 +5,7 @@ import { addComputer, getComputer ,deleteComputer} from '../Controllers/computer
 const computerRouter  = express.Router();
 
 computerRouter.post('/add',addComputer)
-computerRouter.get('/display',getComputer)
+computerRouter.get('/get',getComputer)
 computerRouter.delete('/delete/:id', deleteComputer)
 
 

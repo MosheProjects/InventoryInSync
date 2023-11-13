@@ -4,7 +4,7 @@ import {v4 as uuidv4} from 'uuid'
 
 
 export class computers extends BaseEntity{
-    @PrimaryGeneratedColumn(uuidv4)
+    @PrimaryGeneratedColumn()
     name:string;
     @Column()
    id:number;

@@ -18,7 +18,7 @@ export const insertNewComponents =async (newProduct:object) => {
 
 export const getAllComponents=async ()=>{
     try {
-       const allComponents= await components.query("select * from cables")
+       const allComponents= await components.query("select * from components")
        console.log(allComponents);
        return(allComponents)
     } catch (error) {

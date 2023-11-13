@@ -5,7 +5,7 @@ import { addCables, deleteCables, getCables } from '../Controllers/cablesData';
 const cableRouter = express.Router();
 
 cableRouter.post('/add',addCables)
-cableRouter.get('/display',getCables)
+cableRouter.get('/get',getCables)
 cableRouter.delete('/delete/:id', deleteCables)
 
 

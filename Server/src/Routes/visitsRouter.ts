@@ -4,5 +4,5 @@ import { addVisit,getVisits,deleteVisit} from '../Controllers/visitsInfo'
 export const visitsRouter = express.Router();
 
 visitsRouter.post('/add', addVisit)
- visitsRouter.get('/display', getVisits)
+ visitsRouter.get('/get', getVisits)
  visitsRouter.delete('/delete/:id', deleteVisit)

@@ -12,13 +12,12 @@ import { getNamesOfColumns } from '../Controllers/metadata';
 
 export const mainRouter = express.Router();
 
-mainRouter.use('/Notepad',NProuter);
-mainRouter.use('/Visits',visitsRouter);
-mainRouter.use('/Computers',computerRouter);
-mainRouter.use('/Cables' , cableRouter);
-mainRouter.use ('/Components' , componentsRouter)
-mainRouter.use ('/Usb_stikcs' , usbRouters)
-mainRouter.use('/Users' , userRouter)
+mainRouter.use('/notepad',NProuter);
+mainRouter.use('/visits',visitsRouter);
+mainRouter.use('/computers',computerRouter);
+mainRouter.use('/cables' , cableRouter);
+mainRouter.use ('/components' , componentsRouter)
+mainRouter.use ('/usb_stikcs' , usbRouters)
+mainRouter.use('/users' , userRouter)
 mainRouter.use('/generalProducts' ,generalProductsRouter )
-
 mainRouter.get('/columnsNames',getNamesOfColumns)
