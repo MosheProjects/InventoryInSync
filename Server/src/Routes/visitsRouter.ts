@@ -1,5 +1,5 @@
 import express from 'express'
-import { addVisit,getVisits,deleteVisit} from '../Controllers/visitsInfo'
+import { addVisit,getVisits,deleteVisit} from '../Controllers/visitsInfoController'
 
 export const visitsRouter = express.Router();
 

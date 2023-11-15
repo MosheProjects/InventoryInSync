@@ -1,6 +1,6 @@
 import { components } from "../Entities/components";
 
-export const insertNewComponents =async (newProduct:object) => {
+export const insertNewComponents = async (newProduct : object) => {
     
     try {
     
@@ -11,7 +11,6 @@ export const insertNewComponents =async (newProduct:object) => {
 
     catch(error){
         console.error(error);
-        
     }
 }
 

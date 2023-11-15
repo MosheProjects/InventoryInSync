@@ -1,5 +1,5 @@
 import express from 'express'
-import { addNote,getNote,deleteNote} from '../Controllers/notepadInfo'
+import { addNote,getNote,deleteNote} from '../Controllers/notepadController'
 
 const NProuter = express.Router();
 

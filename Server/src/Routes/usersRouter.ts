@@ -1,5 +1,5 @@
 import express from 'express'
-import {  } from '../Controllers/componentsData';
+import {  } from '../Controllers/componentsController';
 
 
 

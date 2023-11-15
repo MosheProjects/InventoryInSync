@@ -1,5 +1,7 @@
 import { Notepad } from "../Entities/Notepad";
 import { AppDataSource } from "./connection";
+
+
 export const insertNewNote =async (newNote) => {
     
     try {

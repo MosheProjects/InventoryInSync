@@ -1,6 +1,6 @@
 import express from 'express'
-import {  } from '../Controllers/componentsData';
-import { addUsb, deleteUsb, getUsb } from '../Controllers/usb_sticksData';
+import {  } from '../Controllers/componentsController';
+import { addUsb, deleteUsb, getUsb } from '../Controllers/usb_sticksController';
 
 
 

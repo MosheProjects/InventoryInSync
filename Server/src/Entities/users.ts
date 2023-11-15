@@ -1,4 +1,4 @@
-import {Entity , PrimaryGeneratedColumn , Column, BaseEntity, ManyToOne, JoinColumn } from "typeorm"
+import {Entity , PrimaryGeneratedColumn , Column, BaseEntity, ManyToOne, JoinColumn, OneToMany } from "typeorm"
 import {v4 as uuidv4} from 'uuid'
 import { taken_items } from "./taken_items";
 import 'reflect-metadata'
@@ -8,14 +8,14 @@ import 'reflect-metadata'
 export class users extends BaseEntity{
     
     @PrimaryGeneratedColumn()
-    "name":string;
+    name:string;
 
     @Column()
-    "phone number":string;
+    phone_number:string;
 
     @Column()
-    "group" : string
+    group : string
 
-    @ManyToOne(() => taken_items, taken_items => taken_items.users)
+    @OneToMany(() => taken_items, taken_items => taken_items.users)
     taken_items: taken_items[];
 }

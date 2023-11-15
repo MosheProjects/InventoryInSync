@@ -47,7 +47,7 @@ const response = await axios.delete(`http://localhost:3001/${tblName}/delete/${d
 return response.data;
     }
     catch(error){
-        throw new Error('Error fetching table')
+        throw new Error('Error deleting from table')
     }
 };
 

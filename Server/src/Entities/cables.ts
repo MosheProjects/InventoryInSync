@@ -15,6 +15,6 @@ export class cables extends BaseEntity{
     @Column()
     quantity:string;
     @Column()
-    isAvailable:string;
+    isAvailable:boolean;
 
 }

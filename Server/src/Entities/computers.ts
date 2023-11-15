@@ -17,6 +17,6 @@ export class computers extends BaseEntity{
     @Column()
    comments:string;
    @Column()
-   is_available:string;
+   is_available:boolean;
 
 }
