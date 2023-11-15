@@ -1,6 +1,6 @@
 import { components } from "../Entities/components";
 
-export const insertNewComponents =async (newProduct:object) => {
+export const insertNewComponents = async (newProduct : object) => {
     
     try {
     
@@ -11,14 +11,13 @@ export const insertNewComponents =async (newProduct:object) => {
 
     catch(error){
         console.error(error);
-        
     }
 }
 
 
 export const getAllComponents=async ()=>{
     try {
-       const allComponents= await components.query("select * from cables")
+       const allComponents= await components.query("select * from components")
        console.log(allComponents);
        return(allComponents)
     } catch (error) {

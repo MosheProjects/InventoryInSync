@@ -5,17 +5,17 @@ import {v4 as uuidv4} from 'uuid'
 
 @Entity()
 export class usb_sticks extends BaseEntity{
-    @PrimaryGeneratedColumn(uuidv4)
-    "שם":string;
+    @PrimaryGeneratedColumn()
+    "name":string;
     @Column()
-    "מקום אחסון":string;
+    "located":string;
     @Column()
-    "למי שייך":string;
+    "belongesTo":string;
     @Column()
-   "בוט-אבל":number
+   "bootable":number
    @Column()
-    "מקט" : string
+    "order_id" : string
     @Column()
-    "הערות": string
+    "comments": string
 
 }
