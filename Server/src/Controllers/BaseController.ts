@@ -18,7 +18,6 @@ export class baseController extends baseServiceClass{
 
  getAllTBL = async (table,req:Request,res:Response)=>{
     const tableInfo = await this.getAll(table)
-    console.log(tableInfo);
     res.json(tableInfo);
 
 }

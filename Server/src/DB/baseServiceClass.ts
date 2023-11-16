@@ -1,11 +1,17 @@
+import { BaseEntity, Repository } from "typeorm";
+import { cables } from "../Entities/cables";
 
-export class baseServiceClass{
+export class baseServiceClass<T>{
+    entity : Repository<T>
 
+    constructor(entity: Repository<T>) {
+        this.entity = entity
+    }
 
-     insert = async (table,newProduct:object) => {
+     insert = async (newProduct: T) => {
     
         try {
-        const newCable = table.create(newProduct);
+        const newCable = this.entity.create(newProduct);
         return  await newCable.save()
         }
     
@@ -17,7 +23,7 @@ export class baseServiceClass{
     
       getAll=async (table)=>{
         try {
-           const AllCables= await table.query.find()
+           const AllCables= await table.find();
            console.log(AllCables);
            return(AllCables)
         } catch (error) {
