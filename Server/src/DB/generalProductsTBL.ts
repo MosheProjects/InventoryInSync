@@ -18,7 +18,7 @@ export const insertNewGeneralProducts =async (newProduct:object) => {
 
 export const getAllGeneralProducts=async ()=>{
     try {
-       const allGeneralProducts= await generalProducts.query("select * from computers")
+       const allGeneralProducts= await generalProducts.query("select * from generalProducts")
        console.log(allGeneralProducts);
        return(allGeneralProducts)
     } catch (error) {

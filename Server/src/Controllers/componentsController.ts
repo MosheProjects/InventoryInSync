@@ -1,10 +1,7 @@
+import { Response, Request } from "express";
 import { getAllComponents, insertNewComponents ,deleteComponentsFromDB } from "../DB/componentsTBL";
 
-
-
-
-
-export const addComponents = async (req,res)=>{
+export const addComponents = async (req : Request ,res : Response)=>{
     try{
         const data = req.body
        const tableInfo =  await insertNewComponents(data)

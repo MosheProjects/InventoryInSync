@@ -33,8 +33,6 @@ export const getUsb = async (req,res)=>{
 
 }
 
-
-
 export const deleteUsb =async(req,res)=>{
     const{id}=req.params;
     const deleteresponse= await deleteUsbFromDB(id)

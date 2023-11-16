@@ -1,41 +1,11 @@
 import { cables } from "../Entities/cables";
-
-export const insertNewCables =async (newProduct:object) => {
-    
-    try {
-    
-    const newCable = cables.create(newProduct);
-    return  await newCable.save()
-
-    }
-
-    catch(error){
-        console.error(error);
-        
-    }
-}
-
-
-export const getAllCables=async ()=>{
-    try {
-       const AllCables= await cables.query("select * from cables")
-       console.log(AllCables);
-       return(AllCables)
-    } catch (error) {
-        console.error(error);
-        
-    }
-}
+import { baseServiceClass } from "./baseServiceClass";
 
 
 
+export class Cables extends baseServiceClass{
 
-export const deleteCablesFromDB=async(id:number)=>{
-    try {
-        await cables.delete(id)
-        return  getAllCables()
-    } catch (error) {
-        console.error(error);
-        
-    }
+     declare getAll: (table: cables) => Promise<any>;
+     declare deleteById: (table: cables, id: any) => Promise<any>;
+     declare insert: (table: cables, newProduct: object) => Promise<any>;
 }

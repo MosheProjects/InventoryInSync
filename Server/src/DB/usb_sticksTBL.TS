@@ -18,7 +18,7 @@ export const insertNewUsb =async (newProduct:object) => {
 
 export const getAllUsb=async ()=>{
     try {
-       const allUsb= await usb_sticks.query("select * from cables")
+       const allUsb= await usb_sticks.query("select * from usb_sticks")
        console.log(allUsb);
        return(allUsb)
     } catch (error) {

@@ -4,23 +4,23 @@ import {v4 as uuidv4} from 'uuid'
 
 
 export class generalProducts extends BaseEntity{
-    @PrimaryGeneratedColumn(uuidv4)
-    "שם":string;
+    @PrimaryGeneratedColumn()
+   name:string;
     @Column()
-    " מספר צ":number;
+    id:number;
     @Column()
-    "קטגוריה ":string;
+    category:string;
     @Column()
-    "איזה כלי":string;
+    related_vehicle:string;
     @Column()
-    "חתום":string;
+   signedBy:string;
     @Column()
-   "הערות":string;
+  comments:string;
    @Column()
-   "כמות":string;
+  quantity:string;
    @Column()
-   "מיקום":string;
+   location:string;
    @Column()
-   "מקט":string;
+order_id:string;
 
 }

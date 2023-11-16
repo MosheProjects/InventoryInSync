@@ -1,13 +1,13 @@
 import express from 'express'
-import {  } from '../Controllers/componentsData';
-import { addUsb, deleteUsb, getUsb } from '../Controllers/usb_sticksData';
+import {  } from '../Controllers/componentsController';
+import { addUsb, deleteUsb, getUsb } from '../Controllers/usb_sticksController';
 
 
 
 const usbRouters  = express.Router();
 
 usbRouters.post('/add', addUsb)
-usbRouters.get('/display',getUsb)
+usbRouters.get('/get',getUsb)
 usbRouters.delete('/delete/:id', deleteUsb)
 
 
