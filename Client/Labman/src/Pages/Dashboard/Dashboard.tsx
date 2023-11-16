@@ -1,9 +1,10 @@
+import AddProductForm from "../../Components/AddProductForm/AddProductForm";
 import VisitArrange from "../../Components/visits/VisitArrange";
-import LendingForm from '../../Components/LendingForm/LendingForm'
+import './dashboard.css'
 
 export default function Dashboard() {
   return (
-<LendingForm/>
-      /* <VisitArrange/> */
-  )
-}
+    <div className="deshboardContainer">
+
+    <AddProductForm/>
+    </div>

@@ -9,10 +9,9 @@ export default function App() {
 
 
   return (
-    <div>
+   
         <QueryClientProvider client={queryClient}>
         <Dashboard/>
         </QueryClientProvider>
-    </div>
   )
 }
