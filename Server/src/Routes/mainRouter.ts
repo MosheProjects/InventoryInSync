@@ -16,6 +16,7 @@ mainRouter.use('/notepad',NProuter);
 mainRouter.use('/visits',visitsRouter);
 mainRouter.use('/computers',computerRouter);
 mainRouter.use('/cables' , cableRouter);
+// FIXME: spacing
 mainRouter.use ('/components' , componentsRouter)
 mainRouter.use ('/usb_sticks' , usbRouters)
 mainRouter.use ('/taken_items' , takenItemsRoute)
