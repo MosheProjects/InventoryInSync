@@ -1,12 +1,12 @@
 import express from 'express'
 import { cablesController } from '../Controllers/cablesController';
+import { Cables } from '../DB/cablesTBL';
 
-const myclass=new cablesController()
 const cableRouter = express.Router();
 
-cableRouter.post('/add',myclass.add)
-cableRouter.get('/get',myclass.getAllTBL)
-cableRouter.delete('/delete/:id', myclass.deleteItem)
+cableRouter.post('/add',)
+cableRouter.get('/get',getAllTBL)
+cableRouter.delete('/delete/:id', deleteItem)
 
 
 export {cableRouter}

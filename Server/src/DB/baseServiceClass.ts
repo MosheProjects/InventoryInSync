@@ -2,7 +2,7 @@ import { BaseEntity, Repository } from "typeorm";
 import { cables } from "../Entities/cables";
 
 export class baseServiceClass<T>{
-    entity : Repository<T>
+   private readonly entity : Repository<T>
 
     constructor(entity: Repository<T>) {
         this.entity = entity
@@ -11,8 +11,8 @@ export class baseServiceClass<T>{
      insert = async (newProduct: T) => {
     
         try {
-        const newCable = this.entity.create(newProduct);
-        return  await newCable.save()
+        this.entity.create(newProduct);
+        return await this.entity.save(newProduct)
         }
     
         catch(error){
@@ -21,9 +21,9 @@ export class baseServiceClass<T>{
     }
     
     
-      getAll=async (table)=>{
+      getAll=async (table :T)=>{
         try {
-           const AllCables= await table.find();
+           const AllCables= await this.entity.find(table);
            console.log(AllCables);
            return(AllCables)
         } catch (error) {
@@ -36,7 +36,7 @@ export class baseServiceClass<T>{
     
       deleteById=async(table,id)=>{
         try {
-            await table.delete(id)
+            await this.entity.delete(id)
             return  this.getAll(table)
         } catch (error) {
             console.error(error);
