@@ -1,5 +1,6 @@
 import AddProductForm from "../../Components/AddProductForm/AddProductForm";
-import VisitsCards from "../../Components/visits/VisitsCards/VisitsCards";
+import LendingForm from "../../Components/LendingForm/LendingForm";
+import VisitArrange from "../../Components/visits/VisitArrange";
 import './dashboard.css'
 
 export default function Dashboard() {
@@ -17,7 +18,8 @@ export default function Dashboard() {
       </div>
      
 
-    <AddProductForm/>
+    <LendingForm/>
     </div>
+  )}
 
   )}

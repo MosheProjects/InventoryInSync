@@ -1,10 +1,10 @@
-export interface CABLES {
-  name: string;
-  related_vehicle: number;
-  comments: string;
-  order_id: string;
-  quantity: string;
-  isAvailable: boolean;
+export class CABLES {
+  name: string="";
+  related_vehicle: number=0;
+  comments: string =""
+  order_id: string='';
+  quantity: string ="";
+  isAvailable: boolean=true;
 }
 
 export interface COMPONENTS {

@@ -8,6 +8,7 @@ import {
   TextField,
   Typography,
   Button,
+  FormControl,
 } from "@mui/material";
 import {
   addToTBL,
@@ -51,9 +52,9 @@ export default function LendingForm() {
 
     }
 
-
-  
   }, [categoryChoice]);
+
+
 
   const getProductTable = (e: CATAGORY_OBJECT_TYPE) => {
     console.log(e);
@@ -62,14 +63,15 @@ export default function LendingForm() {
     const tableInfo = getTblByName(e.en);
     tableInfo.then((data) => {
       console.log(data);
-
       setTableContent(data);
     });
   };
 
-  const handleSubmit = (event: Event) => {
+
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("submited");
+
     addToTBL("taken_items", itemToFill as object).then(() => {
       console.log(itemToFill);
       deleteFromTBL(
@@ -81,16 +83,22 @@ export default function LendingForm() {
     });
   };
 
+
+
   const fillUserDetailes = (fieldName: string, field: any) => {
     const obj: any = { ...usersInfo, [fieldName]: field };
     setusersInfo(obj);
   };
+
+
 
   const fillItemTakenObject = (fieldName: string, field: any) => {
     const obj: any = { ...itemToFill, [fieldName]: field };
     setitemToFill(obj);
   };
 
+
+  
   return (
     <Box
       onSubmit={handleSubmit}
@@ -121,6 +129,7 @@ export default function LendingForm() {
               label
               control={
                 <TextField
+                  id={fieldName.id}
                   required
                   placeholder={fieldName.he}
                   onChange={(e) =>
@@ -137,6 +146,7 @@ export default function LendingForm() {
               label
               control={
                 <TextField
+                  id={fieldName.id}
                   required
                   placeholder={fieldName.he}
                   multiline
@@ -150,6 +160,7 @@ export default function LendingForm() {
           );
         })}
         <FormControlLabel
+        
           onChange={() => fillItemTakenObject("status", "הושאל לטווח ארוך")}
           control={<Checkbox />}
           label="הושאל לטווח ארוך"
@@ -158,6 +169,7 @@ export default function LendingForm() {
       <div className="m-5 d-flex flex-column gap-4">
         <h3>פריט השאלה</h3>
         <Select
+        id={"equipment-select"}
         required
           value={categoryChoice}
           defaultValue="dgdgdfdfdfdf"

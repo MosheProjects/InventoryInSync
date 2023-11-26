@@ -20,3 +20,4 @@ export const AppDataSource = new DataSource({
     entities:[Notepad,Visits,computers , cables , components ,usb_sticks , users , generalProducts ,taken_items],
     synchronize:true
 })
+
