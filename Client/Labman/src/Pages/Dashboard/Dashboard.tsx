@@ -5,8 +5,21 @@ import './dashboard.css'
 
 export default function Dashboard() {
   return (
-    <div className="deshboardContainer">
+    <div dir="rtl" className="deshboardContainer">
+ <div className="left-panel">
+
+</div>
+
+      <div className="right-panel">
+        <div className="visits-panel">
+            <VisitsCards/>
+        </div>
+
+      </div>
+     
 
     <LendingForm/>
     </div>
+  )}
+
   )}
