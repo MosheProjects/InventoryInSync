@@ -1,20 +1,18 @@
 import React ,{useState} from 'react';
 import './AddProductForm.css';
 import ProductForm from './Categories/productForm';
-
-type Categories = { [key: string]: string };
+import {
+  LENDING_FORM_FIELDS,
+  EQUIPMENT_CATAGORIES,
+  CATAGORY_OBJECT_TYPE,
+  USERS_INFO_FIELDS,
+} from '../../Constants/consts';
 
 
 
 export default function AddProductForm() {
   const [category,setCategory] =  useState("");
-  const categories: Categories = {
-    רתמות: "cable",
-    מחשבים: "computers",
-    "דיסק און קי": "usb_stiks",
-    מכלולים: "components",
-    "ציוד היקפי": "generalProducts"
-  };
+
 
   return (
     <div dir='rtl' className="containerPopUp">
@@ -27,10 +25,10 @@ export default function AddProductForm() {
             <p className='textTitleCategories'>בחר את סוג הפריט</p>
           </div>
           <div className="inputItems">
-            {Object.keys(categories).map((category) => (
-              <div className='catagoriesText' key={category}>
-           <input onChange={() => setCategory(categories[category])} type="radio" name="category" value={categories[category]} />
-              {category}
+            {EQUIPMENT_CATAGORIES.map((category, i) => (
+              <div className='catagoriesText' key={i}>
+           <input onChange={() => setCategory(category.en)} type="radio" name="category" value={category.he} />
+              { category.he}
               </div>
             ))}
           </div>
