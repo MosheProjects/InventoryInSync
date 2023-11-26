@@ -4,12 +4,12 @@
   align-items: center;
 }
 .popUp{
-    height: 650px;
-    width: 380px;
+    height: 690px;
+    width: 420px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
 }
 .upperPart{
-    height: 40%;
+    height: 32%;
     width: 100%;
  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
 }
@@ -65,5 +65,5 @@
   }
 
   .columnContainers{
-    height: 60%;
+    height: 68%;
   }
