@@ -1,14 +1,15 @@
 import express from 'express'
-import { addComponents, deleteComponents, getComponents } from '../Controllers/componentsController';
+import { ComponentsController } from '../Controllers/componentsController';
+import { AppDataSource } from '../DB/connection';
+import { ComponentsService } from '../DB/componentsTBL';
+import { components } from '../Entities/components';
+
+export const componentsRouter = express.Router();
+const repo=AppDataSource.getRepository(components)
+const service=new ComponentsService(repo)
+const ClassController=new ComponentsController(service,"components")
 
 
-
-const componentsRouter  = express.Router();
-
-componentsRouter.post('/add',addComponents)
-componentsRouter.get('/get',getComponents)
-componentsRouter.delete('/delete/:id',deleteComponents )
-
-
-
-export {componentsRouter}
+componentsRouter.post('/add',ClassController.add)
+componentsRouter.get('/get',ClassController.getAllTBL)
+componentsRouter.delete('/delete/:id',ClassController.deleteItem)

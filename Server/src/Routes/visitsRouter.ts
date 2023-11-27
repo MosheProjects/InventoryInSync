@@ -1,9 +1,16 @@
 import express from 'express'
-import { addVisit,getVisits,deleteVisit} from '../Controllers/visitsInfoController'
+import { AppDataSource } from '../DB/connection';
+import { Visits } from '../Entities/visits';
+import { VisitsController } from '../Controllers/visitsInfoController';
+import { VisitsService } from '../DB/visitsTBL';
+
 
 export const visitsRouter = express.Router();
-console.log("fg");
+const repo=AppDataSource.getRepository(Visits)
+const service=new VisitsService(repo)
+const ClassController=new VisitsController(service,"Visits")
 
-visitsRouter.post('/add', addVisit)
- visitsRouter.get('/get', getVisits)
- visitsRouter.delete('/delete/:id', deleteVisit)
+
+visitsRouter.post('/add',ClassController.add)
+visitsRouter.get('/get',ClassController.getAllTBL)
+visitsRouter.delete('/delete/:id',ClassController.deleteItem)

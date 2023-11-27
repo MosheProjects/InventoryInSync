@@ -1,10 +1,15 @@
+import { generalProducts } from './../Entities/generalProducts';
+import { GeneralProductsController } from './../Controllers/GeneralProductsController';
 import express from 'express'
+import { AppDataSource } from '../DB/connection';
+import { GeneralProductsService } from '../DB/generalProductsTBL';
+
+export const generalProductsRouter = express.Router();
+const repo=AppDataSource.getRepository(generalProducts)
+const service=new GeneralProductsService(repo)
+const ClassController=new GeneralProductsController(service,"generalProducts")
 
 
-const generalProductsRouter = express.Router();
-
-generalProductsRouter.post('/add', )
-generalProductsRouter.get('/get', )
-generalProductsRouter.delete('/delete/:id', )
-
-export {generalProductsRouter}
+generalProductsRouter.post('/add',ClassController.add)
+generalProductsRouter.get('/get',ClassController.getAllTBL)
+generalProductsRouter.delete('/delete/:id',ClassController.deleteItem)

@@ -1,32 +1,39 @@
 import { Response,Request } from "express";
 import { baseServiceClass } from "../DB/baseServiceClass";
 
+export abstract class baseController<T>{
 
-export class baseController extends baseServiceClass{
+protected  readonly service :baseServiceClass<T>
+protected entityName:string
+
+constructor(service :baseServiceClass<T>,entityName)
+{
+this.service=service;
+this.entityName=entityName
+}
 
 
- add = async (table,req:Request,res:Response)=>{
+ add = async (req:Request,res:Response)=>{
     
     const data = req.body
-       const tableInfo =await this.insert(table,data)
-       console.log(tableInfo);
+       const tableInfo =await this.service.insert(data)
        res.json(tableInfo);
     
 
 }
 
 
- getAllTBL = async (table,req:Request,res:Response)=>{
-    const tableInfo = await this.getAll(table)
+ getAllTBL = async (req:Request,res:Response)=>{
+    const tableInfo = await this.service.getAll(this.entityName)
     res.json(tableInfo);
 
 }
 
 
 
-deleteItem =async(table ,req:Request,res:Response)=>{
+deleteItem =async(req:Request,res:Response)=>{
     const id=req.params;
-    const deleteresponse= await this.deleteById(table,id)
+    const deleteresponse= await this.service.deleteById(this.entityName,id)
     res.json(deleteresponse)
 }
 

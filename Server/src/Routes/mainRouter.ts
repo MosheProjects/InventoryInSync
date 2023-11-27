@@ -4,7 +4,7 @@ import { visitsRouter } from './visitsRouter';
 import {computerRouter} from './computerRouter'
 import { cableRouter } from './cableRouter';
 import { componentsRouter } from './componentsRouter';
-import { usbRouters } from './usbRouter';
+import { usbRouter } from './usbRouter';
 import { userRouter } from './usersRouter';
 import { generalProductsRouter } from './GProuter';
 import { getNamesOfColumns } from '../Controllers/metadataController';
@@ -17,7 +17,7 @@ mainRouter.use('/visits',visitsRouter);
 mainRouter.use('/computers',computerRouter);
 mainRouter.use('/cables' , cableRouter);
 mainRouter.use ('/components' , componentsRouter)
-mainRouter.use ('/usb_sticks' , usbRouters)
+mainRouter.use ('/usb_sticks' , usbRouter)
 mainRouter.use ('/taken_items' , takenItemsRoute)
 mainRouter.use('/users' , userRouter)
 mainRouter.use('/generalProducts' ,generalProductsRouter )

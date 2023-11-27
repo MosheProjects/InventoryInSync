@@ -1,15 +1,15 @@
 import express from 'express'
-import {  } from '../Controllers/componentsController';
-import { addUsb, deleteUsb, getUsb } from '../Controllers/usb_sticksController';
+import { AppDataSource } from '../DB/connection';
+import { usb_sticks } from '../Entities/usb_sticks';
+import { UsbSticksController } from '../Controllers/usb_sticksController';
+import {UsbSticksService} from '../DB/usb_sticksTBL' 
+
+export const usbRouter = express.Router();
+const repo=AppDataSource.getRepository(usb_sticks)
+const service=new UsbSticksService(repo)
+const ClassController=new UsbSticksController(service,"usb_sticks")
 
 
-
-const usbRouters  = express.Router();
-
-usbRouters.post('/add', addUsb)
-usbRouters.get('/get',getUsb)
-usbRouters.delete('/delete/:id', deleteUsb)
-
-
-
-export {usbRouters}
+usbRouter.post('/add',ClassController.add)
+usbRouter.get('/get',ClassController.getAllTBL)
+usbRouter.delete('/delete/:id',ClassController.deleteItem)
