@@ -1,42 +1,12 @@
-import { getAllComputers, insertNewComputers ,deleteComputersFromDB } from "../DB/copmutersTBL";
+import { computers } from "../Entities/computers";
+import { baseController } from "./BaseController";
 
 
 
 
-
-export const addComputer = async (req,res)=>{
-    try{
-        const data = req.body
-       const tableInfo =  await insertNewComputers(data)
-       console.log(tableInfo);
-       res.json(tableInfo);
+export class ComputersController extends baseController<computers> {
+  
+    constructor(entity, entityName) {
+      super(entity, entityName);
     }
-
-    catch(error){
-        console.error(error); 
-    }
-}
-
-
-export const getComputer = async (req,res)=>{
-    const tableInfo = await getAllComputers()
-    console.log(tableInfo);
-    res.json(tableInfo);
-
-    try {
-        
-    } 
-    catch (error) {
-        
-    }
-
-
-}
-
-
-
-export const deleteComputer =async(req,res)=>{
-    const{id}=req.params;
-    const deleteresponse= await deleteComputersFromDB(id)
-    res.json(deleteresponse)
-}
+  }

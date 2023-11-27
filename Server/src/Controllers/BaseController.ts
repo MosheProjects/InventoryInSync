@@ -4,11 +4,12 @@ import { baseServiceClass } from "../DB/baseServiceClass";
 export abstract class baseController<T>{
 
 protected  readonly service :baseServiceClass<T>
-protected abstract entityName:string
+protected entityName:string
 
-constructor(service :baseServiceClass<T>)
+constructor(service :baseServiceClass<T>,entityName)
 {
 this.service=service;
+this.entityName=entityName
 }
 
 
@@ -22,17 +23,17 @@ this.service=service;
 }
 
 
- getAllTBL = async (table:T,req:Request,res:Response)=>{
-    const tableInfo = await this.service.getAll(table)
+ getAllTBL = async (req:Request,res:Response)=>{
+    const tableInfo = await this.service.getAll(this.entityName)
     res.json(tableInfo);
 
 }
 
 
 
-deleteItem =async(table:T,req:Request,res:Response)=>{
+deleteItem =async(req:Request,res:Response)=>{
     const id=req.params;
-    const deleteresponse= await this.service.deleteById(table,id)
+    const deleteresponse= await this.service.deleteById(this.entityName,id)
     res.json(deleteresponse)
 }
 

@@ -21,10 +21,9 @@ export class baseServiceClass<T>{
     }
     
     
-      getAll=async (table :T)=>{
+      getAll=async(table)=>{
         try {
            const AllCables= await this.entity.find(table);
-           console.log(AllCables);
            return(AllCables)
         } catch (error) {
             console.error(error);
@@ -37,7 +36,8 @@ export class baseServiceClass<T>{
       deleteById=async(table,id)=>{
         try {
             await this.entity.delete(id)
-            return  this.getAll(table)
+        
+            return this.getAll(table)
         } catch (error) {
             console.error(error);
             

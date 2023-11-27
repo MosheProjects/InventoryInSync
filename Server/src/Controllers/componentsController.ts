@@ -1,39 +1,11 @@
 import { Response, Request } from "express";
-import { getAllComponents, insertNewComponents ,deleteComponentsFromDB } from "../DB/componentsTBL";
+import { components } from "../Entities/components";
+import { baseController } from "./BaseController";
 
-export const addComponents = async (req : Request ,res : Response)=>{
-    try{
-        const data = req.body
-       const tableInfo =  await insertNewComponents(data)
-       console.log(tableInfo);
-       res.json(tableInfo);
+
+export class ComponentsController extends baseController<components> {
+  
+    constructor(entity, entityName) {
+      super(entity, entityName);
     }
-
-    catch(error){
-        console.error(error); 
-    }
-}
-
-
-export const getComponents = async (req,res)=>{
-    const tableInfo = await getAllComponents()
-    console.log(tableInfo);
-    res.json(tableInfo);
-
-    try {
-        
-    } 
-    catch (error) {
-        
-    }
-
-
-}
-
-
-
-export const deleteComponents =async(req,res)=>{
-    const{id}=req.params;
-    const deleteresponse= await deleteComponentsFromDB(id)
-    res.json(deleteresponse)
-}
+  }

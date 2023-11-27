@@ -1,12 +1,15 @@
 import express from 'express'
-import { addNote,getNote,deleteNote} from '../Controllers/notepadController'
+import { AppDataSource } from '../DB/connection';
+import { Notepad } from '../Entities/Notepad';
+import { NotePadController } from '../Controllers/notepadController';
+import { NotepadService } from '../DB/notepadTBL';
 
-const NProuter = express.Router();
-
-NProuter.post('/add', addNote)
-NProuter.get('/get', getNote)
-NProuter.delete('/delete/:id', deleteNote)
-
+export const NProuter = express.Router();
+const repo=AppDataSource.getRepository(Notepad)
+const service=new NotepadService(repo)
+const ClassController=new NotePadController(service,"Notepad")
 
 
-export {NProuter}
+NProuter.post('/add',ClassController.add)
+NProuter.get('/get',ClassController.getAllTBL)
+NProuter.delete('/delete/:id',ClassController.deleteItem)

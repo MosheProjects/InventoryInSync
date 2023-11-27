@@ -3,7 +3,7 @@ import { baseServiceClass } from "./baseServiceClass";
 
 
 
-export class Cables extends baseServiceClass<cables>{
-   
+export class CablesService extends baseServiceClass<cables>{
+  
 
 }
