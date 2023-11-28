@@ -15,5 +15,5 @@ const ClassController=new cablesController(service,"cables")
 cableRouter.post('/add',ClassController.add)
 cableRouter.get('/get',ClassController.getAllTBL)
 cableRouter.delete('/delete/:id',ClassController.deleteItem)
-
+cableRouter.post('/update',ClassController.updateItem)
 
