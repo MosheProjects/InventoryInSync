@@ -71,6 +71,7 @@ export default function LendingForm() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+console.log(event.currentTarget[0].id);
 
     addToTBL("taken_items", itemToFill as object).then(() => {
       console.log(itemToFill);
@@ -92,7 +93,7 @@ export default function LendingForm() {
 
 
 
-  const fillItemTakenObject = (fieldName: string, field: any) => {
+  const fillItemTakenObject = (fieldName: string, field: any,) => {
     const obj: any = { ...itemToFill, [fieldName]: field };
     setitemToFill(obj);
   };

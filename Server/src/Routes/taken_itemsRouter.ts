@@ -13,6 +13,7 @@
  takenItemsRoute.post('/add',ClassController.add)
  takenItemsRoute.get('/get',ClassController.getAllTBL)
  takenItemsRoute.delete('/delete/:id',ClassController.deleteItem)
+ takenItemsRoute.post('/update',ClassController.updateItem)
 
 
 

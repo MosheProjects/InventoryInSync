@@ -6,7 +6,6 @@ export class CABLES {
   quantity: string ="";
   isAvailable: boolean=true;
 }
-
 export interface COMPONENTS {
   name: string;
   id: number;

@@ -22,5 +22,7 @@ export class generalProducts extends BaseEntity{
    location:string;
    @Column()
 order_id:string;
+@Column()
+is_available:boolean;
 
 }

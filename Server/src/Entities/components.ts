@@ -15,6 +15,6 @@ export class components extends BaseEntity{
     @Column()
   comments:string;
    @Column()
-   isAvailabe:boolean;
+   is_available:boolean;
 
 }
