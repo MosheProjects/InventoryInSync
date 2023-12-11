@@ -4,7 +4,7 @@ export class CABLES {
   comments: string =""
   order_id: string='';
   quantity: string ="";
-  isAvailable: boolean=true;
+  is_available: boolean=true;
 }
 export interface COMPONENTS {
   name: string;
@@ -12,7 +12,7 @@ export interface COMPONENTS {
   related_vehicle: string;
   signedBy: string;
   comments: string;
-  isAvailabe: boolean;
+  is_available: boolean;
 }
 
 export interface COMPUTERS {
@@ -35,6 +35,7 @@ export interface GENERAL_PRODUCTS {
   quantity: string;
   location: string;
   order_id: string;
+  is_available:boolean
 }
 
 export interface TAKEN_ITEMS {
@@ -63,6 +64,8 @@ export interface USB_STICKS {
   bootable: number;
   order_id: string;
   comments: string;
+  is_available:boolean
+
 }
 
 export interface USERS {

@@ -6,21 +6,21 @@ import './dashboard.css'
 
 export default function Dashboard() {
   return (
-    <div dir="rtl" className="deshboardContainer">
- <div className="left-panel">
+    // <div dir="rtl" className="deshboardContainer">
+ /* <div className="left-panel">
 
-</div>
+</div> */
 
-      {/* <div className="right-panel">
+      /* <div className="right-panel">
         <div className="visits-panel">
             <VisitsCards/>
         </div>
 
-      </div> */}
+      </div> */
      
-
-    <LendingForm/>
-    </div>
+<>    <LendingForm/>
+</>
+    // </div>
   )}
 
   

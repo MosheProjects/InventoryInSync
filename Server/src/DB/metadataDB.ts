@@ -10,4 +10,7 @@ export const getColumnsNames=(tblname)=>{
         console.error(error);
         
     }
+
+
 }
+
