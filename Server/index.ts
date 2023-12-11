@@ -1,5 +1,6 @@
 import express,{Request,Response,NextFunction} from 'express'
 import cors from 'cors'
+import 'reflect-metadata' 
 import { AppDataSource } from './src/DB/connection';
 import { mainRouter } from './src/Routes/mainRouter';
 const app  = express();

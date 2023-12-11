@@ -11,7 +11,7 @@ export class Visits extends BaseEntity{
     @PrimaryGeneratedColumn(uuidv4)
     id:string;
     @CreateDateColumn()
-    createdDate:Date
+    createdDate:Date=new Date;
     @Column()
     visiter:string;
     @Column()

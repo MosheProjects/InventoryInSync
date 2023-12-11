@@ -1,0 +1,142 @@
+.cableContainer{
+    /* background-color: rgb(187, 252, 252); */
+    background-color: rgba(255, 254, 203, 0.804);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+   align-items: center;
+}
+
+.componentsContainer{
+    background-color:#fcc3cc;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+   align-items: center;
+}
+.usb_sticksContainer{
+    background-color:#a1b4d9;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+   align-items: center;
+}
+.computerContainer{
+
+    background-color: rgba(196, 255, 228, 0.804);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+   align-items: center;
+}
+.containerInfo{
+    height: 87%;
+    width:82%;
+    
+ 
+}
+
+.productFormConteiner{
+    height: 100%;
+}
+
+.identification{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.nameItem{
+    height: 15%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.textInput{
+    height: 5%;
+    font-size: 0.8em;
+}
+
+.inputName{
+    height: 37px;
+    width: 100%;
+    
+    
+}
+
+.amountInput{
+    height: 37px;
+    width: 70%;
+}
+.numberComputerInput{
+    height: 37px;
+    width: 80%;
+}
+
+.amountContainer{
+    width: 30%;
+}
+
+.numberContainer{
+    width: 30%;
+}
+
+.chNumberInput{
+    height: 37px;
+    width: 100%; 
+
+}
+
+.catalogInput
+{
+    height: 37px;
+    width: 100%; 
+}
+
+.commentsContainer{
+    height: 40%;
+    width: 100%;
+    display: flex;
+
+}
+
+
+.comments{
+    height: 100%;
+    width: 100%;
+}
+
+.locationInput{
+    height: 37px;
+    width: 100%;
+}
+
+
+.locationsContainer{
+
+    height: 15%;
+    width: 100%;
+    display: flex;
+
+}
+.location{
+    height: 100%;
+    width: 100%;
+}
+.signed{
+    width: 35%;
+   
+}
+.signedInput{
+    height: 37px;
+    width: 100%;
+    justify-content: end;
+}
+
+.OKbutton{
+padding-right: 77%;
+padding-top: 5%;
+}
+
+
