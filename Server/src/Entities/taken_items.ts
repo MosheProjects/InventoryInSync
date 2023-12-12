@@ -21,7 +21,7 @@ export class taken_items extends BaseEntity {
   @ManyToOne(() => users, (users) => users.taken_items)
   users: users=new users();
 
-  @Column()
+  @Column({nullable: true})
   "date": Date=new Date;
 
   @Column({nullable: true})

@@ -1,10 +1,11 @@
-export class CABLES {
-  name: string="";
-  related_vehicle: number=0;
-  comments: string =""
-  order_id: string='';
-  quantity: string ="";
-  is_available: boolean=true;
+export interface CABLES {
+  id:number
+  name: string
+  related_vehicle: number
+  comments: string 
+  order_id: string
+  quantity: string
+  is_available: boolean
 }
 export interface COMPONENTS {
   name: string;
@@ -58,6 +59,7 @@ export interface TAKEN_ITEMS {
 
 
 export interface USB_STICKS {
+  id:number
   name: string;
   located: string;
   belongesTo: string;

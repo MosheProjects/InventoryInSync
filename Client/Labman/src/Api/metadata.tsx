@@ -47,12 +47,12 @@ export const deleteFromTBL = async (tblName: string, deletedItem: string) => {
 
 export const updateTBL = async (tblName: string, updatedTbl: object) => {
   try {
-    const response = await axios.post(
-      `http://localhost:3001/${tblName}/update}`,
+    const response = await axios.put(
+      `http://localhost:3001/${tblName}/update`,
       updatedTbl
     );
     return response.data;
   } catch (error) {
-    throw new Error("Error deleting from table");
+    throw new Error("Error updating table");
   }
 };

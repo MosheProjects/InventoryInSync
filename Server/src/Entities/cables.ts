@@ -6,6 +6,8 @@ import {v4 as uuidv4} from 'uuid'
 export class cables extends BaseEntity{
     @PrimaryGeneratedColumn()
    name:string;
+   @Column(uuidv4)
+   id:number
     @Column()
     related_vehicle:number;
     @Column()

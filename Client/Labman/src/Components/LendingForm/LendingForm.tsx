@@ -9,6 +9,7 @@ import {
   Autocomplete,
   ThemeProvider,
   createTheme,
+  Alert,
 } from "@mui/material";
 import {
   addToTBL,
@@ -35,11 +36,12 @@ import { TAKEN_ITEMS, USERS } from "../../Constants/dbEnteties";
 //c. handle errors and return proper response to client in order to display or use the format.
 
 export default function LendingForm() {
+  const [alert, setAlert] = useState(false);
   const [categoryChoice, setCategoryChoice] = useState<string>("");
   const [tableContent, setTableContent] = useState<any[]>([]);
   const [itemToFill, setitemToFill] = useState<TAKEN_ITEMS>();
   const [usersInfo, setusersInfo] = useState<USERS>();
-  const [loandItem,setLoandItem]=useState<object>();
+  const [loandItem, setLoandItem] = useState<object>();
   const theme = createTheme({
     direction: "rtl", // Both here and <body dir="rtl">
   });
@@ -53,12 +55,9 @@ export default function LendingForm() {
   }, [categoryChoice]);
 
   const getProductTable = (e: CATAGORY_OBJECT_TYPE) => {
-    console.log(e);
-
     setCategoryChoice(e.en);
     const tableInfo = getTblByName(e.en);
     tableInfo.then((data) => {
-      console.log(data);
       setTableContent(data);
     });
   };
@@ -67,9 +66,9 @@ export default function LendingForm() {
     console.log(event.currentTarget[0].id);
 
     addToTBL("taken_items", itemToFill as object).then(() => {
-      const obj: any = { ...loandItem,"is_available":false};
-      updateTBL(categoryChoice,obj).then((data) => {
-        setTableContent(data);
+      const obj: any = { ...loandItem, is_available: false };
+      updateTBL(categoryChoice, obj).then((data) => {
+        setAlert(true);
       });
     });
   };
@@ -80,13 +79,14 @@ export default function LendingForm() {
   };
 
   const fillItemTakenObject = (fieldName: string, field: any) => {
-    const obj: any = { ...itemToFill, [fieldName]: field.name };
-    setLoandItem(field);
+    const obj: any = { ...itemToFill, [fieldName]: field };
     setitemToFill(obj);
   };
 
   return (
     <ThemeProvider theme={theme}>
+      {alert && <Alert severity="success">הפריט הושאל בהצלחה</Alert>}
+
       <Box
         justifyContent="center"
         display="flex"
@@ -161,19 +161,19 @@ export default function LendingForm() {
             ))}
           </div>
           <Autocomplete
-           onChange={(event, value) =>fillItemTakenObject("item_name",value)} 
+            onChange={(event, value) => {
+              fillItemTakenObject("item_name", value.name);
+              setLoandItem(value);
+            }}
             dir="rtl"
             disableCloseOnSelect
             disablePortal
             id="combo-box-demo"
-            options={tableContent.map((item) => item.name)}
-            sx={{ width: 300 }}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="פריט"
-              />
+            options={tableContent.map((item) =>
+              item.is_available ? item.name : null
             )}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="פריט" />}
           />
           <FormControlLabel
             onChange={() => fillItemTakenObject("status", "הושאל לטווח ארוך")}

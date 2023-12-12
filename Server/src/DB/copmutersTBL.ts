@@ -4,6 +4,5 @@ import { baseServiceClass } from "./baseServiceClass";
 
 
 export class ComputersService extends baseServiceClass<computers>{
-  
 
 }

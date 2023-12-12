@@ -11,9 +11,10 @@ const repo=AppDataSource.getRepository(cables)
 const service=new CablesService(repo)
 const ClassController=new cablesController(service,"cables")
 
+console.log(service,ClassController);
 
 cableRouter.post('/add',ClassController.add)
 cableRouter.get('/get',ClassController.getAllTBL)
 cableRouter.delete('/delete/:id',ClassController.deleteItem)
-cableRouter.post('/update',ClassController.updateItem)
+cableRouter.put('/update',ClassController.updateItem)
 
