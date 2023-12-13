@@ -11,7 +11,6 @@ const repo=AppDataSource.getRepository(cables)
 const service=new CablesService(repo)
 const ClassController=new cablesController(service,"cables")
 
-console.log(service,ClassController);
 
 cableRouter.post('/add',ClassController.add)
 cableRouter.get('/get',ClassController.getAllTBL)

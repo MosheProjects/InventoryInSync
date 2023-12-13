@@ -9,12 +9,33 @@ import {
   styled,
   tableCellClasses,
 } from "@mui/material";
+import {
+  CABLES,
+  COMPONENTS,
+  COMPUTERS,
+  GENERAL_PRODUCTS,
+  USB_STICKS,
+} from "../../Constants/dbEnteties";
+
+interface colNamesObj {
+  name: string;
+}
+
 type Props = {
-  columsName: string[];
-  tableInfo: object[];
+  columsName: colNamesObj[];
+  tableInfo:
+    | CABLES[]
+    | COMPONENTS[]
+    | COMPUTERS[]
+    | GENERAL_PRODUCTS[]
+    | USB_STICKS[];
 };
 
 export const ProductTable = ({ columsName, tableInfo }: Props) => {
+  function getFieldInfo<T>(obj: T, field: keyof T): any {
+    return obj[field];
+  }
+
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -34,27 +55,24 @@ export const ProductTable = ({ columsName, tableInfo }: Props) => {
     },
   }));
 
-  
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            {columsName.map((column)=>
-            <StyledTableCell>{column}</StyledTableCell>
-            )}
+            {columsName?.map((column) => (
+              <StyledTableCell>{column.name}</StyledTableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
-          {tableInfo.map((item) => (
-            <StyledTableRow key={item.name}>
-              <StyledTableCell component="th" scope="row">
-                {item.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{item.calories}</StyledTableCell>
-              <StyledTableCell align="right">{item.fat}</StyledTableCell>
-              <StyledTableCell align="right">{item.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{item.protein}</StyledTableCell>
+          {tableInfo?.map((item) => (
+            <StyledTableRow>
+              {columsName?.map((field, i) => (
+                <StyledTableCell align="right">
+                  {getFieldInfo(tableInfo, i)}
+                </StyledTableCell>
+              ))}
             </StyledTableRow>
           ))}
         </TableBody>

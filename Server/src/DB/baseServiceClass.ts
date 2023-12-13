@@ -37,10 +37,8 @@ export class baseServiceClass<T> {
   update = async (itemToUpdate) => {
     try {
       await this.entity.update({ id: itemToUpdate.id }, itemToUpdate);
-      console.log(itemToUpdate.id);
       return await this.entity.findOne(itemToUpdate.id);
     } catch (error) {
-      console.log(error);
     }
   };
 }

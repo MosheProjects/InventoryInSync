@@ -11,17 +11,15 @@ export abstract class baseController<T> {
     this.entityName = entityName;
   }
 
-   updateItem=async(req: Request, res: Response)=> {
+  updateItem = async (req: Request, res: Response) => {
     const body = req.body;
     const updatedProduct = await this.service.update(body);
     res.json(updatedProduct);
-  }
-
-
+  };
 
   add = async (req: Request, res: Response) => {
     const data = req.body;
-    
+
     const tableInfo = await this.service.insert(data);
     res.json(tableInfo);
   };
@@ -35,7 +33,5 @@ export abstract class baseController<T> {
     const id = req.params;
     const deleteresponse = await this.service.deleteById(this.entityName, id);
     res.json(deleteresponse);
-  }
-
-
+  };
 }
