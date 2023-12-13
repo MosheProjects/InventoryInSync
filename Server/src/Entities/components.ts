@@ -14,7 +14,7 @@ export class components extends BaseEntity{
     signedBy:string;
     @Column()
   comments:string;
-   @Column()
-   is_available:boolean;
+  @Column({default: 1 })
+  quantity: number;
 
 }

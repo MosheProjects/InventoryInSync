@@ -15,6 +15,6 @@ export class usb_sticks extends BaseEntity {
   "order_id": string;
   @Column()
   "comments": string;
-  @Column()
-  is_available: boolean;
+  @Column({default: 1 })
+  quantity: number;
 }

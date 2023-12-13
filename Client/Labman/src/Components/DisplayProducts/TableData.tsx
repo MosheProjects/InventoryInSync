@@ -6,47 +6,34 @@ import { EQUIPMENT_CATAGORIES } from "../../Constants/consts";
 import { Tab, Tabs } from "@mui/material";
 
 const TableData = () => {
-  const [table, setTable] = useState<string>("");
-  const [isQueryEnabled, setIsQueryEnabled] = useState(false);
+  
+  const [table, setTable] = useState<string>("cables");
+  const tableFileds: string[] = ["שם פריט", "מקט", "כמות זמינה", "הערות"];
 
-  const { data: data1 } = useQuery("columns", async () => {
-    const response = await getColumnNames(table);
-    return response;
-  },  {
-    enabled: isQueryEnabled,
-  });
   const { data: data2 } = useQuery(table, async () => {
-    const response = await getTblByName(table)
-    console.log(response);
-    
+    const response = await getTblByName(table);
     return response;
-  },  {
-    enabled: isQueryEnabled,
   });
-// useEffect(()=>{
-// console.log(data1,"==>",data2);
-// console.log(isQueryEnabled);
 
-// },[isQueryEnabled])
-  const handleChange=(category: React.SetStateAction<string>)=>{
-    setTable(category) ;
-    setIsQueryEnabled(true);
-  }
+  const handleChange = (category: React.SetStateAction<string>) => {
+    setTable(category);
+  };
 
   return (
     <div dir="rtl">
       <h1>בחר קטגוריה</h1>
       <div className="d-flex m-3 gap-5">
-        {EQUIPMENT_CATAGORIES.map((category) => (
+        {EQUIPMENT_CATAGORIES?.map((category) => (
           <Tabs
+            value={table}
             onClick={() => handleChange(category.en)}
             aria-label="basic tabs example"
           >
-            <Tab label={category.he} />
+            <Tab value={category.en} label={category.he} />
           </Tabs>
         ))}
       </div>
-      <ProductTable columsName={data1} tableInfo={data2} />
+      <ProductTable columsName={tableFileds} tableInfo={data2} />
     </div>
   );
 };

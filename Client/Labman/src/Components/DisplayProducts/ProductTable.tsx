@@ -17,12 +17,8 @@ import {
   USB_STICKS,
 } from "../../Constants/dbEnteties";
 
-interface colNamesObj {
-  name: string;
-}
-
 type Props = {
-  columsName: colNamesObj[];
+  columsName: string[];
   tableInfo:
     | CABLES[]
     | COMPONENTS[]
@@ -32,10 +28,6 @@ type Props = {
 };
 
 export const ProductTable = ({ columsName, tableInfo }: Props) => {
-  function getFieldInfo<T>(obj: T, field: keyof T): any {
-    return obj[field];
-  }
-
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -61,18 +53,17 @@ export const ProductTable = ({ columsName, tableInfo }: Props) => {
         <TableHead>
           <TableRow>
             {columsName?.map((column) => (
-              <StyledTableCell>{column.name}</StyledTableCell>
+              <StyledTableCell align="center">{column}</StyledTableCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {tableInfo?.map((item) => (
             <StyledTableRow>
-              {columsName?.map((field, i) => (
-                <StyledTableCell align="right">
-                  {getFieldInfo(tableInfo, i)}
-                </StyledTableCell>
-              ))}
+              <StyledTableCell align="center">{item.name}</StyledTableCell>
+              <StyledTableCell align="center">{item.id}</StyledTableCell>
+              <StyledTableCell align="center">{item.quantity}</StyledTableCell>
+              <StyledTableCell align="center">{item.comments}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

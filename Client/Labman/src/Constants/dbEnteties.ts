@@ -4,8 +4,7 @@ export interface CABLES {
   related_vehicle: number
   comments: string 
   order_id: string
-  quantity: string
-  is_available: boolean
+  quantity:number;
 }
 export interface COMPONENTS {
   name: string;
@@ -13,8 +12,7 @@ export interface COMPONENTS {
   related_vehicle: string;
   signedBy: string;
   comments: string;
-  is_available: boolean;
-}
+  quantity:number;}
 
 export interface COMPUTERS {
   name: string;
@@ -23,7 +21,7 @@ export interface COMPUTERS {
   signedBy: string;
   order_id: string;
   comments: string;
-  is_available: boolean;
+  quantity:number;
 }
 
 export interface GENERAL_PRODUCTS {
@@ -33,11 +31,9 @@ export interface GENERAL_PRODUCTS {
   related_vehicle: string;
   signedBy: string;
   comments: string;
-  quantity: string;
   location: string;
   order_id: string;
-  is_available:boolean
-}
+  quantity:number;}
 
 export interface TAKEN_ITEMS {
   item_name: string;
@@ -66,8 +62,7 @@ export interface USB_STICKS {
   bootable: number;
   order_id: string;
   comments: string;
-  is_available:boolean
-
+  quantity:number;
 }
 
 export interface USERS {

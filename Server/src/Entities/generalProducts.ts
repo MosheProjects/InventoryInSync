@@ -17,12 +17,10 @@ export class generalProducts extends BaseEntity{
     @Column()
   comments:string;
    @Column()
-  quantity:string;
-   @Column()
    location:string;
    @Column()
 order_id:string;
-@Column()
-is_available:boolean;
+@Column({default: 1 })
+quantity: number;
 
 }
