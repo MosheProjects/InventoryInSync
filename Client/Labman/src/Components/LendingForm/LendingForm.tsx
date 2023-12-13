@@ -29,7 +29,7 @@ import {
 //controller inherits from it b. try not to use raw sql when using typeorm library or alike
 //c. handle errors and return proper response to client in order to display or use the format.
 
-export default function LendingForm() {
+const LendingForm = () => {
   const [categoryChoice, setCategoryChoice] = useState<string>("");
   const [tableContent, setTableContent] = useState<any[]>([]);
   const [itemToFill, setitemToFill] = useState<TAKEN_ITEMS>();
@@ -37,29 +37,23 @@ export default function LendingForm() {
 
   useEffect(() => {
     if (categoryChoice !== "") {
-      console.log("just set the catagory of item");
       fillItemTakenObject("item_category", categoryChoice);
       fillItemTakenObject("usersName", usersInfo?.name);
     }
   }, [categoryChoice]);
 
   const getProductTable = (e: CATAGORY_OBJECT_TYPE) => {
-    console.log(e);
-
     setCategoryChoice(e.en);
     const tableInfo = getTblByName(e.en);
     tableInfo.then((data) => {
-      console.log(data);
       setTableContent(data);
     });
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(event.currentTarget[0].id);
 
     addToTBL("taken_items", itemToFill as object).then(() => {
-      console.log(itemToFill);
       deleteFromTBL(categoryChoice, itemToFill?.item_name as string).then(
         (data) => {
           setTableContent(data);
@@ -181,4 +175,6 @@ export default function LendingForm() {
       </Button>
     </Box>
   );
-}
+};
+
+export default LendingForm;

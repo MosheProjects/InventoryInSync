@@ -8,15 +8,15 @@ interface Visit {
   date: string;
 }
 
-export default function VisitsCards() {
+const VisitsCards = () => {
   const [visitsInfo, setVisitsInfo] = useState<Visit[] | null>(null);
   let closestVisits: Visit[] = [];
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getTblByName("visits");
         setVisitsInfo(data);
-        console.log(data);
 
         const sortedVisits = data.slice().sort((a: any, b: any) => {
           const dateA = parseISO(a.date);
@@ -25,8 +25,6 @@ export default function VisitsCards() {
         });
 
         closestVisits = sortedVisits.slice(-2).reverse();
-
-        console.log(closestVisits);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -40,7 +38,6 @@ export default function VisitsCards() {
       <div className="titleName">
         <p>ביקורים</p>
       </div>
-
       <div>
         {closestVisits.map((visit, index) => (
           <div key={index}>
@@ -52,4 +49,6 @@ export default function VisitsCards() {
       </div>
     </div>
   );
-}
+};
+
+export default VisitsCards;

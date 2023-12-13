@@ -8,7 +8,7 @@ import {
   USERS_INFO_FIELDS,
 } from "../../Constants/consts";
 
-export default function AddProductForm() {
+const AddProductForm = () => {
   const [category, setCategory] = useState("");
 
   return (
@@ -41,4 +41,6 @@ export default function AddProductForm() {
       </div>
     </div>
   );
-}
+};
+
+export default AddProductForm;

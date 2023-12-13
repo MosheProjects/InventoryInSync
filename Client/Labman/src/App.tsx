@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function App() {
+const App = () => {
   const queryClient = new QueryClient();
 
   return (
@@ -10,4 +10,6 @@ export default function App() {
       <Dashboard />
     </QueryClientProvider>
   );
-}
+};
+
+export default App;

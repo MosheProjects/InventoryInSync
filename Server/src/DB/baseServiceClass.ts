@@ -40,7 +40,7 @@ export class baseServiceClass<T> {
     try {
       return await this.entity.update(itemToUpdate.id, itemToUpdate);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 }

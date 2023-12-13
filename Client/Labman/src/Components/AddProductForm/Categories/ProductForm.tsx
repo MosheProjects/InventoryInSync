@@ -6,7 +6,7 @@ type Props = {
   category: string;
 };
 
-export default function productform({ category }: Props) {
+const ProductForm = ({ category }: Props) => {
   return (
     <div className="productFormConteiner">
       {category === "cables" ? (
@@ -198,4 +198,6 @@ export default function productform({ category }: Props) {
       )}
     </div>
   );
-}
+};
+
+export default ProductForm;
