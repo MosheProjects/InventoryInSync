@@ -1,13 +1,11 @@
 import { getColumnsNames } from "../DB/metadataDB";
-import { Request,Response } from "express";
+import { Request, Response } from "express";
 
-export const getNamesOfColumns=(req:Request,res:Response)=>{
-const tblName=req.headers
-console.log(tblName);
+export const getNamesOfColumns = (req: Request, res: Response) => {
+  const tblName = req.headers;
+  console.log(tblName);
 
-    const columns = getColumnsNames(tblName);
-   
-    res.json(columns)
-   }
+  const columns = getColumnsNames(tblName);
 
-
+  res.json(columns);
+};

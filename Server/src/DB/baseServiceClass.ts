@@ -1,5 +1,4 @@
-import { BaseEntity, Repository } from "typeorm";
-import { cables } from "../Entities/cables";
+import { Repository } from "typeorm";
 
 export class baseServiceClass<T> {
   private readonly entity: Repository<T>;
@@ -29,7 +28,6 @@ export class baseServiceClass<T> {
   deleteById = async (table, id) => {
     try {
       await this.entity.delete(id);
-
       return this.getAll(table);
     } catch (error) {
       console.error(error);
@@ -38,9 +36,9 @@ export class baseServiceClass<T> {
 
   update = async (itemToUpdate) => {
     try {
-      return await this.entity.update(itemToUpdate.id, itemToUpdate);
+      await this.entity.update({ id: itemToUpdate.id }, itemToUpdate);
+      return await this.entity.findOne(itemToUpdate.id);
     } catch (error) {
-      console.log(error);
     }
   };
 }
