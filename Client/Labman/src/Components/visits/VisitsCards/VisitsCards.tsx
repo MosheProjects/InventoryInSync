@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import './visitsCards.css';
-import { getTblByName } from '../../../Api/metadata';
-import { parseISO, compareDesc } from 'date-fns';
+import React, { useState, useEffect } from "react";
+import "./visitsCards.css";
+import { getTblByName } from "../../../Api/metadata";
+import { parseISO, compareDesc } from "date-fns";
 
 interface Visit {
   name: string;
-  date: string; 
+  date: string;
 }
 
 export default function VisitsCards() {
@@ -18,30 +18,29 @@ export default function VisitsCards() {
         setVisitsInfo(data);
         console.log(data);
 
+        const sortedVisits = data.slice().sort((a: any, b: any) => {
+          const dateA = parseISO(a.date);
+          const dateB = parseISO(b.date);
+          return compareDesc(dateA, dateB);
+        });
 
-   const sortedVisits = data.slice().sort((a: any, b: any) => {
-  const dateA = parseISO(a.date);
-  const dateB = parseISO(b.date);
-  return compareDesc(dateA, dateB);
-});
-
-closestVisits = sortedVisits.slice(-2).reverse();
+        closestVisits = sortedVisits.slice(-2).reverse();
 
         console.log(closestVisits);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []); 
+  }, []);
 
   return (
-    <div className='cards-container'>
-      <div className='titleName'>
+    <div className="cards-container">
+      <div className="titleName">
         <p>ביקורים</p>
       </div>
-  
+
       <div>
         {closestVisits.map((visit, index) => (
           <div key={index}>

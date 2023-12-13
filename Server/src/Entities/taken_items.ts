@@ -11,23 +11,22 @@ import "reflect-metadata";
 
 @Entity()
 export class taken_items extends BaseEntity {
-
   @PrimaryGeneratedColumn()
   "item_name": string;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   item_category: string;
 
   @ManyToOne(() => users, (users) => users.taken_items)
-  users: users=new users();
+  users: users = new users();
 
   @Column()
-  "date": Date=new Date;
+  "date": Date = new Date();
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   "amount": number;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   "status": string;
 
   @Column()

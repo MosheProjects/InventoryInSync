@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function inventory() {
-  return (
-    <div>inventory</div>
-  )
+  return <div>inventory</div>;
 }

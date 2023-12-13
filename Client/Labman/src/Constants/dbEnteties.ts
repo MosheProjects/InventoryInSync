@@ -1,11 +1,12 @@
 export class CABLES {
-  name: string="";
-  related_vehicle: number=0;
-  comments: string =""
-  order_id: string='';
-  quantity: string ="";
-  isAvailable: boolean=true;
+  name: string = "";
+  related_vehicle: number = 0;
+  comments: string = "";
+  order_id: string = "";
+  quantity: string = "";
+  isAvailable: boolean = true;
 }
+
 export interface COMPONENTS {
   name: string;
   id: number;
@@ -39,22 +40,14 @@ export interface GENERAL_PRODUCTS {
 
 export interface TAKEN_ITEMS {
   item_name: string;
-  
   item_category: string;
-
   users: USERS;
-
   date: Date;
-
   amount: number;
-
   status: string;
-
   comments: string;
-
   QA: string;
 }
-
 
 export interface USB_STICKS {
   name: string;
@@ -67,9 +60,7 @@ export interface USB_STICKS {
 
 export interface USERS {
   name: string;
-
   phone_number: string;
   group: string;
-
   taken_items: TAKEN_ITEMS[];
 }
