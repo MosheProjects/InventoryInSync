@@ -1,9 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
-import { v4 as uuidv4 } from "uuid";
+import { Entity, Column, BaseEntity, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class usb_sticks extends BaseEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn()
   "name": string;
 
   @Column()
@@ -19,8 +18,9 @@ export class usb_sticks extends BaseEntity {
   "order_id": string;
 
   @Column()
-  "comments": string;
-
+  related_vehicle: string;
   @Column()
-  is_available: boolean;
+  "comments": string;
+  @Column({ default: 1 })
+  quantity: number;
 }

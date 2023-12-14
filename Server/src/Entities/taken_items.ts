@@ -1,18 +1,13 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  BaseEntity,
-  OneToMany,
-  ManyToOne,
-} from "typeorm";
+import { Entity, Column, BaseEntity, ManyToOne, PrimaryColumn } from "typeorm";
 import { users } from "./users";
 import "reflect-metadata";
 
 @Entity()
 export class taken_items extends BaseEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn()
   "item_name": string;
+
+
 
   @Column({ nullable: true })
   item_category: string;

@@ -4,6 +4,8 @@ import { ParsedQs } from "qs";
 import { baseController } from "./BaseController";
 import { cables } from "../Entities/cables";
 
+export class cablesController extends baseController<cables> {}
+=======
 export class cablesController extends baseController<cables> {
   constructor(entity, entityName) {
     super(entity, entityName);

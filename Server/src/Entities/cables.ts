@@ -1,23 +1,26 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
-import { v4 as uuidv4 } from "uuid";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  BaseEntity,
+  PrimaryColumn,
+} from "typeorm";
+import { Entity, Column, BaseEntity } from "typeorm";
+
+
 
 @Entity()
 export class cables extends BaseEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn()
   name: string;
-
-  @Column()
-  related_vehicle: number;
-
-  @Column()
-  comments: string;
-
   @Column()
   order_id: string;
-
+  @Column()
+  related_vehicle: number;
+  @Column()
+  comments: string;
+  @Column({ default: 1 })
+  quantity: number;
   @Column()
   quantity: string;
-
-  @Column()
-  is_available: boolean;
 }

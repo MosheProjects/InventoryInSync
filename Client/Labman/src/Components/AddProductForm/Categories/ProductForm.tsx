@@ -198,6 +198,8 @@ const ProductForm = ({ category }: Props) => {
       )}
     </div>
   );
+}
+
 };
 
 export default ProductForm;

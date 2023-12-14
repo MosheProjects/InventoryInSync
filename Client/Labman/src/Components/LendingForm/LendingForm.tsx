@@ -4,13 +4,21 @@ import {
   Checkbox,
   FormControlLabel,
   FormGroup,
-  MenuItem,
-  Select,
   TextField,
   Typography,
   Button,
-  FormControl,
+  Autocomplete,
+  ThemeProvider,
+  createTheme,
+  Alert,
 } from "@mui/material";
+import {
+  addToTBL,
+  deleteFromTBL,
+  getTblByName,
+  updateTBL,
+} from "../../Api/metadata";
+import { useEffect, useState } from "react";
 import { addToTBL, deleteFromTBL, getTblByName } from "../../Api/metadata";
 import { TAKEN_ITEMS, USERS } from "../../Constants/dbEnteties";
 import {
@@ -19,6 +27,7 @@ import {
   CATAGORY_OBJECT_TYPE,
   USERS_INFO_FIELDS,
 } from "../../Constants/consts";
+import { TAKEN_ITEMS, USERS } from "../../Constants/dbEnteties";
 
 //TO-DO:
 //1.start using more types
@@ -29,14 +38,22 @@ import {
 //controller inherits from it b. try not to use raw sql when using typeorm library or alike
 //c. handle errors and return proper response to client in order to display or use the format.
 
+export default function LendingForm() {
+  const [alert, setAlert] = useState(false);
+
 const LendingForm = () => {
   const [categoryChoice, setCategoryChoice] = useState<string>("");
   const [tableContent, setTableContent] = useState<any[]>([]);
   const [itemToFill, setitemToFill] = useState<TAKEN_ITEMS>();
   const [usersInfo, setusersInfo] = useState<USERS>();
+  const [loandItem, setLoandItem] = useState<object>();
+  const theme = createTheme({
+    direction: "rtl", // Both here and <body dir="rtl">
+  });
 
   useEffect(() => {
     if (categoryChoice !== "") {
+
       fillItemTakenObject("item_category", categoryChoice);
       fillItemTakenObject("usersName", usersInfo?.name);
     }
@@ -52,6 +69,16 @@ const LendingForm = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log(event.currentTarget[0].id);
+
+    addToTBL("taken_items", itemToFill as object).then(() => {
+      const obj: any = { ...loandItem, quantity: 0 };
+      updateTBL(categoryChoice, obj).then(() => {
+        setAlert(true);
+      });
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
     addToTBL("taken_items", itemToFill as object).then(() => {
       deleteFromTBL(categoryChoice, itemToFill?.item_name as string).then(
@@ -59,6 +86,7 @@ const LendingForm = () => {
           setTableContent(data);
         }
       );
+
     });
   };
 
@@ -73,6 +101,42 @@ const LendingForm = () => {
   };
 
   return (
+    <ThemeProvider theme={theme}>
+      {alert && <Alert severity="success">הפריט הושאל בהצלחה</Alert>}
+      <Box
+        justifyContent="center"
+        display="flex"
+        flexDirection="row"
+        onSubmit={handleSubmit}
+        margin={30}
+        bgcolor={"#f9f97cb0"}
+        border={3}
+        width={700}
+        borderColor={"#646cff"}
+        dir="rtl"
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "25ch" },
+        }}
+        autoComplete="off"
+      >
+        <FormGroup className="m-4">
+          {USERS_INFO_FIELDS.map((fieldName) => {
+            return (
+              <FormControlLabel
+                label
+                control={
+                  <TextField
+                    sx={{ bgcolor: "white" }}
+                    id={fieldName.id}
+                    required
+                    placeholder={fieldName.he}
+                    onChange={(e) =>
+                      fillUserDetailes(fieldName.en, e.target.value)
+                    }
+                  />
+                }
+
     <Box
       onSubmit={handleSubmit}
       display={"flex"}
@@ -164,16 +228,71 @@ const LendingForm = () => {
                 label={item.name}
                 onChange={() => fillItemTakenObject("item_name", item.name)}
               />
+            );
+          })}
+          {LENDING_FORM_FIELDS.map((fieldName) => {
+            return (
+              <FormControlLabel
+                label
+                control={
+                  <TextField
+                    sx={{ bgcolor: "white" }}
+                    id={fieldName.id}
+                    required
+                    placeholder={fieldName.he}
+                    multiline
+                    rows={fieldName.he === "הערות" ? 6 : 1}
+                    onChange={(e) =>
+                      fillItemTakenObject(fieldName.en, e.target.value)
+                    }
+                  />
+                }
+              />
+            );
+          })}
+        </FormGroup>
+        <div className="m-5 gap-4 ">
+          <h5>בחר קטגוריה</h5>
+          <div className="d-flex flex-wrap gap-3 p-3">
+            {EQUIPMENT_CATAGORIES.map((category, i) => (
+              <div>
+                <input
+                  className="m-1"
+                  onChange={() => getProductTable(category)}
+                  name="category"
+                  type="radio"
+                  value={category.he}
+                />
+                {category.he}
+              </div>
             ))}
-          </FormGroup>
-        ) : (
-          <p>לא נמצאו פריטים במלאי</p>
-        )}
-      </div>
-      <Button type="submit" className="m-5" variant="contained">
-        אשר
-      </Button>
-    </Box>
+          </div>
+          <Autocomplete
+            onChange={(event, value) => {
+              fillItemTakenObject("item_name", value.name);
+              setLoandItem(value);
+            }}
+            dir="rtl"
+            disableCloseOnSelect
+            disablePortal
+            id="combo-box-demo"
+            options={tableContent.map((item) =>
+              item.is_available ? item.name : null
+            )}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="פריט" />}
+          />
+          <FormControlLabel
+            onChange={() => fillItemTakenObject("status", "הושאל לטווח ארוך")}
+            control={<Checkbox />}
+            label="הושאל לטווח ארוך"
+          />
+          <Button type="submit" className="m-5 w-50 " variant="contained">
+            אשר
+          </Button>
+        </div>
+      </Box>
+    </ThemeProvider>
   );
 };
 
