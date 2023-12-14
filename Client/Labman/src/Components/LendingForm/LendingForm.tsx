@@ -66,8 +66,8 @@ export default function LendingForm() {
     console.log(event.currentTarget[0].id);
 
     addToTBL("taken_items", itemToFill as object).then(() => {
-      const obj: any = { ...loandItem, is_available: false };
-      updateTBL(categoryChoice, obj).then((data) => {
+      const obj: any = { ...loandItem, quantity: 0 };
+      updateTBL(categoryChoice, obj).then(() => {
         setAlert(true);
       });
     });
@@ -86,7 +86,6 @@ export default function LendingForm() {
   return (
     <ThemeProvider theme={theme}>
       {alert && <Alert severity="success">הפריט הושאל בהצלחה</Alert>}
-
       <Box
         justifyContent="center"
         display="flex"

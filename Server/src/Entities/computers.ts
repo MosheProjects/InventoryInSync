@@ -1,11 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, PrimaryColumn } from "typeorm";
 import { v4 as uuidv4 } from "uuid";
 @Entity()
 export class computers extends BaseEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn()
   name: string;
   @Column()
-  id: number;
+  vehicleNumber: string;
   @Column()
   type: string;
   @Column()
@@ -14,6 +14,6 @@ export class computers extends BaseEntity {
   order_id: string;
   @Column()
   comments: string;
-  @Column({default: 1 })
+  @Column({ default: 1 })
   quantity: number;
 }

@@ -16,9 +16,18 @@ import {
   GENERAL_PRODUCTS,
   USB_STICKS,
 } from "../../Constants/dbEnteties";
+import { FIELDS_OF_CATEGORIES,categoryFields } from "../../Constants/consts";
+import { useEffect, useState } from "react";
+
+
+interface colNamesObj {
+  name: string;
+  type:string
+}
 
 type Props = {
-  columsName: string[];
+  columnNames: colNamesObj[];
+  tableName: any;
   tableInfo:
     | CABLES[]
     | COMPONENTS[]
@@ -27,7 +36,9 @@ type Props = {
     | USB_STICKS[];
 };
 
-export const ProductTable = ({ columsName, tableInfo }: Props) => {
+export const ProductTable = ({columnNames, tableName, tableInfo }: Props) => {
+  const [fieldName, setFieldName] = useState<keyof categoryFields>(tableName); // Initial field name
+
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -47,23 +58,27 @@ export const ProductTable = ({ columsName, tableInfo }: Props) => {
     },
   }));
 
+  useEffect(() => {
+    setFieldName(tableName);
+  }, [tableName]);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            {columsName?.map((column) => (
+            {FIELDS_OF_CATEGORIES[fieldName].map((column) => (
               <StyledTableCell align="center">{column}</StyledTableCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
-          {tableInfo?.map((item) => (
-            <StyledTableRow>
-              <StyledTableCell align="center">{item.name}</StyledTableCell>
-              <StyledTableCell align="center">{item.id}</StyledTableCell>
-              <StyledTableCell align="center">{item.quantity}</StyledTableCell>
-              <StyledTableCell align="center">{item.comments}</StyledTableCell>
+          {tableInfo?.map((item, i) => (
+            <StyledTableRow key={i}>
+              {columnNames?.map((col) => (
+                <StyledTableCell align="center">
+                  {item && col.name && item[col.name as keyof typeof item]}
+                </StyledTableCell>
+              ))}
             </StyledTableRow>
           ))}
         </TableBody>

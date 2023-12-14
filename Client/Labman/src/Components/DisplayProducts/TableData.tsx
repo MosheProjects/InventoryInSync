@@ -6,34 +6,57 @@ import { EQUIPMENT_CATAGORIES } from "../../Constants/consts";
 import { Tab, Tabs } from "@mui/material";
 
 const TableData = () => {
-  
   const [table, setTable] = useState<string>("cables");
-  const tableFileds: string[] = ["שם פריט", "מקט", "כמות זמינה", "הערות"];
+  const [tabValue, setTabValue] = useState<number>(0);
+
+  const { data: data1 } = useQuery(["columns",table], async () => {
+    const response = await getColumnNames(table);
+    return response;
+  });
 
   const { data: data2 } = useQuery(table, async () => {
     const response = await getTblByName(table);
     return response;
   });
 
-  const handleChange = (category: React.SetStateAction<string>) => {
+  const handleChange = async (
+    i: number,
+    category: React.SetStateAction<string>
+  ) => {
     setTable(category);
+    setTabValue(i);
+    console.log(data1,data2);
+    
   };
 
   return (
-    <div dir="rtl">
-      <h1>בחר קטגוריה</h1>
+    <div
+      className="d-flex flex-column justify-content-center align-items-center"
+      dir="rtl"
+    >
+      <h1 className="m-4">בחר קטגוריה</h1>
       <div className="d-flex m-3 gap-5">
-        {EQUIPMENT_CATAGORIES?.map((category) => (
-          <Tabs
-            value={table}
-            onClick={() => handleChange(category.en)}
-            aria-label="basic tabs example"
-          >
-            <Tab value={category.en} label={category.he} />
-          </Tabs>
-        ))}
+        <Tabs
+          value={tabValue}
+          onChange={(e, newValue) =>
+            handleChange(newValue, EQUIPMENT_CATAGORIES[newValue].en)
+          }
+          aria-label="basic tabs example"
+          sx={{
+            "& .MuiTabs-flexContainer": {
+              justifyContent: "space-around", // Adjust this value to control space between tabs
+            },
+            "& .MuiTab-root": {
+              minWidth: "200px", // Adjust this value to control tab width
+            },
+          }}
+        >
+          {EQUIPMENT_CATAGORIES?.map((category, i) => (
+            <Tab key={i} value={i} label={category.he} />
+          ))}
+        </Tabs>
       </div>
-      <ProductTable columsName={tableFileds} tableInfo={data2} />
+      <ProductTable columnNames={data1} tableName={table} tableInfo={data2} />
     </div>
   );
 };

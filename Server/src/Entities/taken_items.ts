@@ -13,7 +13,7 @@ export class taken_items extends BaseEntity {
   @ManyToOne(() => users, (users) => users.taken_items)
   users: users ;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true})
   "date": Date = new Date();
 
   @Column({ nullable: true })
