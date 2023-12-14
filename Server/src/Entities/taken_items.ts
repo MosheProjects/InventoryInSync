@@ -5,15 +5,17 @@ import "reflect-metadata";
 @Entity()
 export class taken_items extends BaseEntity {
   @PrimaryColumn()
-  "item_name": string="";
+  "item_name": string;
+
+
 
   @Column({ nullable: true })
   item_category: string;
 
   @ManyToOne(() => users, (users) => users.taken_items)
-  users: users ;
+  users: users = new users();
 
-  @Column({ nullable: true})
+  @Column()
   "date": Date = new Date();
 
   @Column({ nullable: true })

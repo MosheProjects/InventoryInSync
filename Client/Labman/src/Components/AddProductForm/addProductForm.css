@@ -1,69 +1,63 @@
-.containerPopUp{
+.containerPopUp {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.popUp{
-    height: 690px;
-    width: 420px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+.popUp {
+  height: 690px;
+  width: 420px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.upperPart{
-    height: 32%;
-    width: 100%;
- box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+.upperPart {
+  height: 32%;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.titleText{
-    width: 100%;
-    height: 25%;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-
-.textOptions{
-    height: 15%;
-    width:100%;
-    display: flex;
-    font-size: 0.7em;
-   padding-right:10%;
-    align-items: center;
-}
-    
-
-
-.textTitleCatagories{
-    width: 30%;
-    justify-content: center;
-    align-items: center;
+.titleText {
+  width: 100%;
+  height: 25%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
-
-
-.ritghSide{
-    border: 1px solid rgb(142, 51, 51);
-    width:60% ;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
- 
+.textOptions {
+  height: 15%;
+  width: 100%;
+  display: flex;
+  font-size: 0.7em;
+  padding-right: 10%;
+  align-items: center;
 }
 
+.textTitleCatagories {
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+}
 
-.catagoriesText{
-    padding-right: 10%;
+.ritghSide {
+  border: 1px solid rgb(142, 51, 51);
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.catagoriesText {
+  padding-right: 10%;
 }
 
 .inputItems {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .inputItems div {
-    flex: 0 0 calc(40% - 10px); 
-    margin: 5px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  .columnContainers{
-    height: 68%;
-  }
+.inputItems div {
+  flex: 0 0 calc(40% - 10px);
+  margin: 5px;
+}
+
+.columnContainers {
+  height: 68%;
+}

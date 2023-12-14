@@ -1,10 +1,8 @@
-import express from 'express'
-import { cablesController } from '../Controllers/cablesController';
-import { CablesService } from '../DB/cablesTBL';
-import { cables } from '../Entities/cables';
-import { AppDataSource } from '../DB/connection';
-
-
+import express from "express";
+import { cablesController } from "../Controllers/cablesController";
+import { CablesService } from "../DB/cablesTBL";
+import { cables } from "../Entities/cables";
+import { AppDataSource } from "../DB/connection";
 
 export const cableRouter = express.Router();
 const repo=AppDataSource.getRepository(cables)

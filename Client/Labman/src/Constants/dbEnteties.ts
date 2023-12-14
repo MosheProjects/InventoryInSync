@@ -4,7 +4,6 @@ export interface CABLES {
   related_vehicle: number;
   comments: string;
   quantity: number;
-}
 export interface COMPONENTS {
   name: string;
   vehicleNumber: string;
@@ -39,19 +38,12 @@ export interface GENERAL_PRODUCTS {
 
 export interface TAKEN_ITEMS {
   item_name: string;
-
   item_category: string;
-
   users: USERS;
-
   date: Date;
-
   amount: number;
-
   status: string;
-
   comments: string;
-
   QA: string;
 }
 

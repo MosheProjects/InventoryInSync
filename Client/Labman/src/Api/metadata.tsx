@@ -56,3 +56,4 @@ export const updateTBL = async (tblName: string, updatedTbl: object) => {
     throw new Error("Error updating table");
   }
 };
+

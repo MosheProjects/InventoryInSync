@@ -21,3 +21,4 @@ export class generalProducts extends BaseEntity {
   @Column({ default: 1 })
   quantity: number;
 }
+

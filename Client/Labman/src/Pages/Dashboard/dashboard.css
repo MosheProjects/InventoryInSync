@@ -1,18 +1,17 @@
-.deshboardContainer{
-    height: 100vh;
-    width: 100vw;
-    background-color: rgb(172, 162, 226)
+.deshboardContainer {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(172, 162, 226);
 }
 
-
-.right-panel{
-    width: 40%;
-    height: 100%;
-    border: 1px solid black;
+.right-panel {
+  width: 40%;
+  height: 100%;
+  border: 1px solid black;
 }
 
-.visits-panel{
-    width: 100%;
-    height: 50%;
-    border: 1px solid black;
+.visits-panel {
+  width: 100%;
+  height: 50%;
+  border: 1px solid black;
 }
