@@ -1,4 +1,5 @@
-.deshboardContainer{
+/* .deshboardContainer{
+    display: flex;
     height: 100vh;
     width: 100vw;
     background-color: rgb(172, 162, 226)
@@ -16,3 +17,37 @@
     height: 50%;
     border: 1px solid black;
 }
+
+
+.left-panel{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    height: 100%;
+    border: 1px solid black;
+} */
+
+
+
+.dashboardContainer {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(132, 126, 161);
+  }
+  
+  /* .leftPanel {
+    height: 100%;
+    padding: 16px;
+    
+  }
+  
+  .rightPanel {
+    height: 100%;
+    padding: 16px;
+  }
+  
+  .visitsPanel {
+    height: 100%; 
+  }
+   */

@@ -175,9 +175,7 @@ export default function productform({ category }: Props) {
 
 
       ):(
-        <div>
-          {/* תוכן כללי */}
-        </div>
+        <div>        </div>
       )}
     </div>
   );

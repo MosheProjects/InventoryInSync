@@ -74,3 +74,11 @@ export interface USERS {
 
   taken_items: TAKEN_ITEMS[];
 }
+
+export interface Visit {
+  visiter: string;
+  createdDate: string; 
+  issuedBy:string;
+  comments: string;
+
+}

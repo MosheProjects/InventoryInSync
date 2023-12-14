@@ -1,0 +1,33 @@
+.tiContainers{
+justify-content: center;
+    width: 100%;
+    height: 100%;
+
+}
+
+
+.tiText{
+    width: 70%;
+    height: 7%;
+    
+}
+
+.tiCard{
+    width: 30%;
+    height: 45%;
+    border: 1px solid #222222;
+}
+
+
+.dateTaken{
+    padding-top: 2%;
+    padding-right: 2%;
+    font-size: 0.8em;
+    height: 15%;
+}
+
+.takenCards {
+  
+    width: 90%;
+    height: 90%;
+}
