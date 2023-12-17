@@ -1,8 +1,58 @@
-.titleName {
+
+/* .tiText {
+    width: 70%;
+    height: 7%;
 }
 
-.cards-container {
-  width: 100%;
-  height: 100%;
-  border: 1px solid red;
+.tiCard {
+    width: 30%;
+    height: 45%;
+    border: 1px solid #222222;
 }
+
+.commentsTitle {
+    font-size: 0.6em;
+    align-items: end;
+    display: table-caption;
+    padding-top: 30%;
+}
+.textTime{
+    padding-right: 1%;
+    font-size: 0.9em;
+    height: 20%;
+    
+}
+
+.commentsText {
+    font-size: 0.6em;
+    margin-top: 3px;
+    margin-right: 8px;
+}
+
+.divComments {
+    border: 1px solid black;
+    height: 25%;
+    border-radius: 10px;
+    display: flex;
+}
+
+.divCards {
+    padding-top: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+
+@media (max-width: 1500px) {
+.textTime{
+    font-size: 0.7em;
+}
+
+.commentsTitle {
+    font-size: 0.6em;
+    align-items: end;
+    display: table-caption;
+    padding-top: 0%;
+}
+} */
+

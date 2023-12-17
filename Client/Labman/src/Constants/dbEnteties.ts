@@ -64,3 +64,11 @@ export interface USERS {
   group: string;
   taken_items: TAKEN_ITEMS[];
 }
+
+export interface Visit {
+  visiter: string;
+  createdDate: string; 
+  issuedBy:string;
+  comments: string;
+
+}

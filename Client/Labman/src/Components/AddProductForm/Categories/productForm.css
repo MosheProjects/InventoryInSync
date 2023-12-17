@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+.cableContainer{
+    background-color: rgba(255, 254, 203, 0.804);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+   align-items: center;
+=======
 .cableContainer {
   /* background-color: rgb(187, 252, 252); */
   background-color: rgba(255, 254, 203, 0.804);
@@ -5,6 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+>>>>>>> 691a4146a5475a4251238d5116ff747837aa8373
 }
 
 .componentsContainer {

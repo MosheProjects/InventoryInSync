@@ -5,7 +5,6 @@ import {
   BaseEntity,
   PrimaryColumn,
 } from "typeorm";
-import { Entity, Column, BaseEntity } from "typeorm";
 
 
 
@@ -21,6 +20,5 @@ export class cables extends BaseEntity {
   comments: string;
   @Column({ default: 1 })
   quantity: number;
-  @Column()
-  quantity: string;
+  
 }

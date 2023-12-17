@@ -192,14 +192,14 @@ const ProductForm = ({ category }: Props) => {
               <button>אישור</button>
             </div>
           </div>
+
         </div>
       ) : (
-        <div>{/* תוכן כללי */}</div>
+        <div></div>
       )}
     </div>
   );
 }
 
-};
 
 export default ProductForm;

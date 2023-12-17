@@ -5,7 +5,7 @@ import "reflect-metadata";
 @Entity()
 export class taken_items extends BaseEntity {
   @PrimaryColumn()
-  "item_name": string;
+  "item_name": number;
 
 
 
