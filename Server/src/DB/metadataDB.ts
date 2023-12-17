@@ -2,7 +2,7 @@ import { AppDataSource } from "./connection";
 
 export const getColumnsNames=(tblname)=>{
     try {
-        const response= AppDataSource.getMetadata(tblname).columns.map(column => ({name:column.propertyName,type:column.type}));
+        const response= AppDataSource.getMetadata(tblname).columns.map(column => ({ name: column.propertyName, type: column.type }));
         console.log(response);
         
         return response
@@ -10,4 +10,7 @@ export const getColumnsNames=(tblname)=>{
         console.error(error);
         
     }
+
+
 }
+

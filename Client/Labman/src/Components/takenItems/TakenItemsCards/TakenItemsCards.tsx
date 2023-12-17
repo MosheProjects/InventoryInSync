@@ -45,7 +45,7 @@ const takenItemsCards = () => {
   };
 
   return (
-    <Grid container flexDirection="column" dir="rtl">
+    <Grid container flexDirection="column" dir="rtl"     >
       <Typography variant="h5" paddingTop={3.2}>
         ציוד בשטח
       </Typography>
@@ -53,8 +53,10 @@ const takenItemsCards = () => {
         container
         spacing={2}
         justifyContent="flex-start"
-     paddingLeft={5}
+     paddingLeft={3}
      paddingTop={1}
+  
+     lg={11}
       >
         {takenItemInfo &&
           takenItemInfo.map((item, index) => (
@@ -64,7 +66,7 @@ const takenItemsCards = () => {
               key={index}
               xs={12}
               sm={6}
-              md={4}
+              md={5}
               lg={4}
             >
               <Card

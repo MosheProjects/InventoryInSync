@@ -1,21 +1,26 @@
-import {Entity , PrimaryGeneratedColumn , Column, BaseEntity } from "typeorm"
-import {v4 as uuidv4} from 'uuid'
-
-
+import { Entity, Column, BaseEntity, PrimaryColumn } from "typeorm";
 
 @Entity()
-export class usb_sticks extends BaseEntity{
-    @PrimaryGeneratedColumn()
-    "name":string;
-    @Column()
-    "located":string;
-    @Column()
-    "belongesTo":string;
-    @Column()
-   "bootable":number
-   @Column()
-    "order_id" : string
-    @Column()
-    "comments": string
+export class usb_sticks extends BaseEntity {
+  @PrimaryColumn()
+  "name": string;
 
+  @Column()
+  "located": string;
+
+  @Column()
+  "belongesTo": string;
+
+  @Column()
+  "bootable": number;
+
+  @Column()
+  "order_id": string;
+
+  @Column()
+  related_vehicle: string;
+  @Column()
+  "comments": string;
+  @Column({ default: 1 })
+  quantity: number;
 }

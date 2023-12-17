@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import { Grid, Card, Typography, Divider } from "@mui/material";
 import { parse, compareDesc } from "date-fns";
 import { Visit } from "../../../Constants/dbEnteties";
@@ -42,7 +43,7 @@ const VisitsCards  = () => {
       </Typography>
       <Grid container spacing={2} justifyContent="flex-start" paddingRight={6} paddingTop={1}>
         {closestVisits.map((visit, index) => (
-          <Grid item key={index} xs={12} sm={7} md={5} lg={3.7}>
+          <Grid item key={index} xs={12} sm={7} md={6} lg={3.7}>
             <Card sx={{ backgroundColor: "rgb(219, 116, 144)"}}>
               <Grid container flexDirection="column" paddingTop={2} height={210}>
                 <Grid item paddingRight={2}>

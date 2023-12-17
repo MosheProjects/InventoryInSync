@@ -5,6 +5,7 @@ import { VisitsService } from "../DB/visitsTBL";
 
 export class VisitsController extends baseController<Visits> {
 
+
   protected visitService: VisitsService;
 
   constructor(entity, entityName) {
