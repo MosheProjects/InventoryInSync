@@ -12,4 +12,4 @@ const ClassController = new ComponentsController(service, "components");
 componentsRouter.post("/add", ClassController.add);
 componentsRouter.get("/get", ClassController.getAllTBL);
 componentsRouter.delete("/delete/:id", ClassController.deleteItem);
-componentsRouter.post("/update", ClassController.updateItem);
+componentsRouter.put("/update", ClassController.updateItem);

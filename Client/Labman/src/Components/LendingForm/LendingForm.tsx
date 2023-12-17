@@ -1,4 +1,4 @@
- import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Box,
@@ -13,11 +13,7 @@ import {
   createTheme,
   Alert,
 } from "@mui/material";
-import {
-  addToTBL,
-  getTblByName,
-  updateTBL,
-} from "../../Api/metadata";
+import { addToTBL, getTblByName, updateTBL } from "../../Api/metadata";
 import { TAKEN_ITEMS, USERS } from "../../Constants/dbEnteties";
 import {
   LENDING_FORM_FIELDS,
@@ -25,6 +21,7 @@ import {
   CATAGORY_OBJECT_TYPE,
   USERS_INFO_FIELDS,
 } from "../../Constants/consts";
+
 //TO-DO:
 //1.start using more types
 //2.make components more generic and put the logic on-side or on page and use it via props
@@ -33,6 +30,7 @@ import {
 //5.server-side make base class that does the main stuff and all other db/servies or
 //controller inherits from it b. try not to use raw sql when using typeorm library or alike
 //c. handle errors and return proper response to client in order to display or use the format.
+
 const LendingForm = () => {
   const [alert, setAlert] = useState(false);
   const [categoryChoice, setCategoryChoice] = useState<string>("");
@@ -40,34 +38,36 @@ const LendingForm = () => {
   const [itemToFill, setitemToFill] = useState<TAKEN_ITEMS>();
   const [usersInfo, setusersInfo] = useState<USERS>();
   const [loandItem, setLoandItem] = useState<object>();
+
   const theme = createTheme({
     direction: "rtl", // Both here and <body dir="rtl">
   });
-  useEffect(() => {
-    if (categoryChoice !== "") {
-      fillItemTakenObject("item_category", categoryChoice);
-      fillItemTakenObject("usersName", usersInfo?.name);
-    }
-  }, [categoryChoice]);
+
   const getProductTable = (e: CATAGORY_OBJECT_TYPE) => {
     setCategoryChoice(e.en);
+    fillItemTakenObject("item_category", e.he);
     const tableInfo = getTblByName(e.en);
     tableInfo.then((data) => {
       setTableContent(data);
     });
   };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(event.currentTarget[0].id);
-    addToTBL("taken_items", itemToFill as object).then(() => {
-      const obj: any = { ...loandItem, quantity: 0 };
-      updateTBL(categoryChoice, obj).then(() => {
-        setAlert(true);
+    fillItemTakenObject("users", usersInfo);
+    addToTBL("users", usersInfo as object).then(() => {
+      addToTBL("taken_items", itemToFill as object).then(() => {
+        const obj: any = { ...loandItem, quantity: 0 };
+        updateTBL(categoryChoice, obj).then(() => {
+          setAlert(true);
+        });
       });
     });
   };
+
   const fillUserDetailes = (fieldName: string, field: any) => {
     const obj: any = { ...usersInfo, [fieldName]: field };
+
     setusersInfo(obj);
   };
   const fillItemTakenObject = (fieldName: string, field: any) => {
@@ -94,7 +94,6 @@ const LendingForm = () => {
         }}
         autoComplete="off"
       >
-  
         <FormGroup className="m-4">
           {USERS_INFO_FIELDS.map((fieldName) => {
             return (
@@ -120,8 +119,7 @@ const LendingForm = () => {
                 label
                 control={
                   <TextField
-                  sx={{ bgcolor: "white" }}
-
+                    sx={{ bgcolor: "white" }}
                     id={fieldName.id}
                     required
                     placeholder={fieldName.he}
@@ -154,15 +152,17 @@ const LendingForm = () => {
           </div>
           <Autocomplete
             onChange={(event, value) => {
-              fillItemTakenObject("item_name", value.name);
-              setLoandItem(value);
+              fillItemTakenObject("item_name", value);
+              setLoandItem(() =>
+                tableContent.find((item) => item.name === value)
+              );
             }}
             dir="rtl"
             disableCloseOnSelect
             disablePortal
             id="combo-box-demo"
             options={tableContent.map((item) =>
-              item.is_available ? item.name : null
+              item.quantity == 1 ? item.name : null
             )}
             sx={{ width: 300 }}
             renderInput={(params) => <TextField {...params} label="פריט" />}

@@ -12,4 +12,4 @@ const ClassController = new NotePadController(service, "Notepad");
 NProuter.post("/add", ClassController.add);
 NProuter.get("/get", ClassController.getAllTBL);
 NProuter.delete("/delete/:id", ClassController.deleteItem);
-NProuter.post("/update", ClassController.updateItem);
+NProuter.put("/update", ClassController.updateItem);

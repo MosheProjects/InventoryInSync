@@ -24,7 +24,6 @@ export class VisitsController extends baseController<Visits> {
     });
 
     // this.visitService.(updatedVisits);
-
     return updatedVisits;
   };
 }

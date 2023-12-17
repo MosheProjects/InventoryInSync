@@ -41,20 +41,42 @@ const VisitsCards  = () => {
       <Typography variant="h5" paddingRight={6} paddingTop={3.2}>
         ביקורים
       </Typography>
-      <Grid container spacing={2} justifyContent="flex-start" paddingRight={6} paddingTop={1}>
+      <Grid
+        container
+        spacing={2}
+        justifyContent="flex-start"
+        paddingRight={6}
+        paddingTop={1}
+      >
         {closestVisits.map((visit, index) => (
-          <Grid item key={index} xs={12} sm={7} md={6} lg={3.7}>
-            <Card sx={{ backgroundColor: "rgb(219, 116, 144)"}}>
-              <Grid container flexDirection="column" paddingTop={2} height={210}>
+          <Grid item key={index} xs={12} sm={7} md={6} lg={3.9}>
+            <Card
+              sx={{ backgroundColor: "rgb(219, 116, 144)" }}
+        
+            >
+              <Grid
+                container
+                flexDirection="column"
+                paddingTop={2}
+                height={210}
+              >
                 <Grid item paddingRight={2}>
                   <Typography style={{ fontSize: "0.9em" }}>
                     {new Date(visit.createdDate).toLocaleDateString()}
                   </Typography>
-                  <Typography style={{ fontSize: "0.9em" }}>{visit.visiter}</Typography>
+                  <Typography style={{ fontSize: "0.9em" }}>
+                    {visit.visiter}
+                  </Typography>
                   <Typography style={{ fontSize: "0.9em" }}>
                     {new Date(visit.createdDate).toLocaleTimeString()}
                   </Typography>
-                  <Divider style={{ border: "1px solid black", margin: "0", width: "90%" }} />
+                  <Divider
+                    style={{
+                      border: "1px solid black",
+                      margin: "0",
+                      width: "90%",
+                    }}
+                  />
                 </Grid>
 
                 <Grid item paddingRight={2}>
@@ -71,8 +93,21 @@ const VisitsCards  = () => {
                     הערות
                   </Typography>
                   <Grid container display="flex" justifyContent="center">
-                    <Grid item xs={10} sm={10} md={10} lg={10} height={45} borderRadius={2} border={1}>
-                      <Typography paddingRight={1} fontSize={12} paddingTop={0.3}>
+                    <Grid
+                      item
+                      xs={10}
+                      sm={10}
+                      md={10}
+                      lg={10}
+                      height={54}
+                      borderRadius={2}
+                      border={1}
+                    >
+                      <Typography
+                        paddingRight={1}
+                        fontSize={12}
+                        paddingTop={0.3}
+                      >
                         {visit.comments}
                       </Typography>
                     </Grid>
