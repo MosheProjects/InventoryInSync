@@ -5,6 +5,7 @@ import { parse, compareDesc } from "date-fns";
 import { Visit } from "../../../Constants/dbEnteties";
 import { MdOutlineMan2 } from "react-icons/md";
 import { getTblByName } from "../../../Api/metadata";
+import { FaPlus } from "react-icons/fa6";
 
 const VisitsCards  = () => {
   const [visitsInfo, setVisitsInfo] = useState<Visit[] | null>(null);
@@ -50,10 +51,7 @@ const VisitsCards  = () => {
       >
         {closestVisits.map((visit, index) => (
           <Grid item key={index} xs={12} sm={7} md={6} lg={3.9}>
-            <Card
-              sx={{ backgroundColor: "rgb(219, 116, 144)" }}
-        
-            >
+            <Card sx={{ backgroundColor: "rgb(219, 116, 144)" }}>
               <Grid
                 container
                 flexDirection="column"
@@ -117,6 +115,51 @@ const VisitsCards  = () => {
             </Card>
           </Grid>
         ))}
+      </Grid>
+      <Grid
+        container
+        lg={8}
+        justifyContent={"space-between"}
+        paddingRight={6}
+        marginTop={2}
+      >
+        <Grid item justifyContent={"flex-end"}>
+          <Grid
+            container
+            display={"flex"}
+            justifyContent={"center"}
+            width={40}
+            height={40}
+            alignItems={"center"}
+            bgcolor={"#cccccc"}
+          >
+            <FaPlus size={25} />
+          </Grid>
+          <Typography fontSize={11}>הוסף ביקור</Typography>
+        </Grid>
+        <Grid item justifyContent={"flex-start"}>
+          <Grid
+            container
+            width={40}
+            height={40}
+            bgcolor={"#cccccc"}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <Typography fontSize={20}>{3}</Typography>
+            <FaPlus />
+          </Grid>
+          <Typography fontSize={11}>הצג הכול </Typography>
+        </Grid>
+        <Divider
+          style={{
+            border: "1px solid white ",
+            margin: "0",
+            marginTop:"10px",
+            width: "100%",
+          }}
+        />
       </Grid>
     </Grid>
   );

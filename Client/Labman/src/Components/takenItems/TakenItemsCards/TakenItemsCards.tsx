@@ -45,57 +45,43 @@ const takenItemsCards = () => {
   };
 
   return (
-    <Grid container flexDirection="column" dir="rtl"     >
-      <Typography variant="h5" paddingTop={3.2}>
-        ציוד בשטח
-      </Typography>
-      <Grid 
-        container
-        spacing={2}
-        justifyContent="flex-start"
-     paddingLeft={3}
-     paddingTop={1}
-  
-     lg={11}
-      >
-        {takenItemInfo &&
-          takenItemInfo.map((item, index) => (
-            <Grid
-           
-              item
-              key={index}
-              xs={12}
-              sm={6}
-              md={5}
-              lg={4}
-            >
-              <Card
-                style={{
-                  backgroundColor: getCategoryColor(item.item_category),
-           
-                }}
-              >
-                <Grid
-                  container
-                  flexDirection="column"
-                  justifyContent="space-between"
-                  height={210}
-                  paddingRight={2}
+    <Grid container flexDirection="column" dir="rtl">
+        <Typography variant="h5" paddingTop={3.2}>
+          ציוד בשטח
+        </Typography>
+        <Grid
+          container
+          spacing={2}
+          justifyContent="flex-start"
+          paddingLeft={3}
+          paddingTop={1}
+          lg={9}
+        >
+          {takenItemInfo &&
+            takenItemInfo.map((item, index) => (
+              <Grid item key={index} xs={12} sm={6} md={5} lg={4}>
+                <Card
+                  style={{
+                    backgroundColor: getCategoryColor(item.item_category),
+                  }}
                 >
-                  <Grid item>
-                    <Typography fontSize={13} variant="body1">
-                      {new Date(item.date).toLocaleDateString()}
-                    </Typography>
-
-
-                    
+                  <Grid
+                    container
+                    flexDirection="column"
+                    justifyContent="space-between"
+                    height={210}
+                    paddingRight={2}
+                  >
+                    <Grid item>
+                      <Typography fontSize={13} variant="body1">
+                        {new Date(item.date).toLocaleDateString()}
+                      </Typography>
+                    </Grid>
                   </Grid>
-                
-                </Grid>
-              </Card>
-            </Grid>
-          ))}
-      </Grid>
+                </Card>
+              </Grid>
+            ))}
+        </Grid>
     </Grid>
   );
 }
