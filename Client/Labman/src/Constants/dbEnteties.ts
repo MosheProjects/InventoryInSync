@@ -3,7 +3,7 @@ export interface CABLES {
   order_id: string;
   related_vehicle: number;
   comments: string;
-  quantity: number;
+  quantity: number;}
 export interface COMPONENTS {
   name: string;
   vehicleNumber: string;

@@ -12,4 +12,4 @@ const ClassController = new UsbSticksController(service, "usb_sticks");
 usbRouter.post("/add", ClassController.add);
 usbRouter.get("/get", ClassController.getAllTBL);
 usbRouter.delete("/delete/:id", ClassController.deleteItem);
-usbRouter.post("/update", ClassController.updateItem);
+usbRouter.put("/update", ClassController.updateItem);

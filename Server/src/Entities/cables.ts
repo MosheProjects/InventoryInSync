@@ -20,5 +20,5 @@ export class cables extends BaseEntity {
   comments: string;
   @Column({ default: 1 })
   quantity: number;
-  
+
 }

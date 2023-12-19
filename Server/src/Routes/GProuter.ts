@@ -15,4 +15,4 @@ const ClassController = new GeneralProductsController(
 generalProductsRouter.post("/add", ClassController.add);
 generalProductsRouter.get("/get", ClassController.getAllTBL);
 generalProductsRouter.delete("/delete/:id", ClassController.deleteItem);
-generalProductsRouter.post("/update", ClassController.updateItem);
+generalProductsRouter.put("/update", ClassController.updateItem);

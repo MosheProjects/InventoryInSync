@@ -5,6 +5,7 @@ import { parse, compareDesc } from "date-fns";
 import { Visit } from "../../../Constants/dbEnteties";
 import { MdOutlineMan2 } from "react-icons/md";
 import { getTblByName } from "../../../Api/metadata";
+import { FaPlus } from "react-icons/fa6";
 
 const VisitsCards  = () => {
   const [visitsInfo, setVisitsInfo] = useState<Visit[] | null>(null);
@@ -41,20 +42,39 @@ const VisitsCards  = () => {
       <Typography variant="h5" paddingRight={6} paddingTop={3.2}>
         ביקורים
       </Typography>
-      <Grid container spacing={2} justifyContent="flex-start" paddingRight={6} paddingTop={1}>
+      <Grid
+        container
+        spacing={2}
+        justifyContent="flex-start"
+        paddingRight={6}
+        paddingTop={1}
+      >
         {closestVisits.map((visit, index) => (
-          <Grid item key={index} xs={12} sm={7} md={6} lg={3.7}>
-            <Card sx={{ backgroundColor: "rgb(219, 116, 144)"}}>
-              <Grid container flexDirection="column" paddingTop={2} height={210}>
+          <Grid item key={index} xs={12} sm={7} md={6} lg={3.9}>
+            <Card sx={{ backgroundColor: "rgb(219, 116, 144)" }}>
+              <Grid
+                container
+                flexDirection="column"
+                paddingTop={2}
+                height={210}
+              >
                 <Grid item paddingRight={2}>
                   <Typography style={{ fontSize: "0.9em" }}>
                     {new Date(visit.createdDate).toLocaleDateString()}
                   </Typography>
-                  <Typography style={{ fontSize: "0.9em" }}>{visit.visiter}</Typography>
+                  <Typography style={{ fontSize: "0.9em" }}>
+                    {visit.visiter}
+                  </Typography>
                   <Typography style={{ fontSize: "0.9em" }}>
                     {new Date(visit.createdDate).toLocaleTimeString()}
                   </Typography>
-                  <Divider style={{ border: "1px solid black", margin: "0", width: "90%" }} />
+                  <Divider
+                    style={{
+                      border: "1px solid black",
+                      margin: "0",
+                      width: "90%",
+                    }}
+                  />
                 </Grid>
 
                 <Grid item paddingRight={2}>
@@ -71,8 +91,21 @@ const VisitsCards  = () => {
                     הערות
                   </Typography>
                   <Grid container display="flex" justifyContent="center">
-                    <Grid item xs={10} sm={10} md={10} lg={10} height={45} borderRadius={2} border={1}>
-                      <Typography paddingRight={1} fontSize={12} paddingTop={0.3}>
+                    <Grid
+                      item
+                      xs={10}
+                      sm={10}
+                      md={10}
+                      lg={10}
+                      height={54}
+                      borderRadius={2}
+                      border={1}
+                    >
+                      <Typography
+                        paddingRight={1}
+                        fontSize={12}
+                        paddingTop={0.3}
+                      >
                         {visit.comments}
                       </Typography>
                     </Grid>
@@ -82,6 +115,51 @@ const VisitsCards  = () => {
             </Card>
           </Grid>
         ))}
+      </Grid>
+      <Grid
+        container
+        lg={8}
+        justifyContent={"space-between"}
+        paddingRight={6}
+        marginTop={2}
+      >
+        <Grid item justifyContent={"flex-end"}>
+          <Grid
+            container
+            display={"flex"}
+            justifyContent={"center"}
+            width={40}
+            height={40}
+            alignItems={"center"}
+            bgcolor={"#cccccc"}
+          >
+            <FaPlus size={25} />
+          </Grid>
+          <Typography fontSize={11}>הוסף ביקור</Typography>
+        </Grid>
+        <Grid item justifyContent={"flex-start"}>
+          <Grid
+            container
+            width={40}
+            height={40}
+            bgcolor={"#cccccc"}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <Typography fontSize={20}>{3}</Typography>
+            <FaPlus />
+          </Grid>
+          <Typography fontSize={11}>הצג הכול </Typography>
+        </Grid>
+        <Divider
+          style={{
+            border: "1px solid white ",
+            margin: "0",
+            marginTop:"10px",
+            width: "100%",
+          }}
+        />
       </Grid>
     </Grid>
   );

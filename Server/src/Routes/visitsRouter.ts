@@ -12,4 +12,4 @@ const ClassController = new VisitsController(service, "Visits");
 visitsRouter.post("/add", ClassController.add);
 visitsRouter.get("/get", ClassController.getAllTBL);
 visitsRouter.delete("/delete/:id", ClassController.deleteItem);
-visitsRouter.post("/update", ClassController.updateItem);
+visitsRouter.put("/update", ClassController.updateItem);
